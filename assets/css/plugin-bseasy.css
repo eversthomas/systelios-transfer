@@ -64,11 +64,28 @@
 	--radius: var(--radius-karte);
 	--font-serif: var(--ff);
 	--font-sans: var(--ff);
+
+	/* Design-Einstellungen des Plugins (Backend „Design“ von BSEasy Sync): sonst stehen dort feste Farben,
+	   die im Dark Mode zu hellen Karten mit hellem Text führen. */
+	--bes-card-bg-custom: var(--grund);
+	--bes-card-border-custom: var(--linie);
+	--bes-card-text-custom: var(--tinte);
+	--bes-card-link-custom: var(--haus-text);
+	--bes-card-stripe-custom: var(--haus-text);
+	--bes-badge-bg-custom: var(--flaeche-warm);
+	--bes-badge-text-custom: var(--tinte);
+	--bes-button-bg-custom: var(--haus);
+	--bes-button-bg-hover-custom: var(--haus);
+	--bes-button-text-custom: var(--auf-haus);
 }
+
+/* Wechsel Kacheln/Karte: Text gehört zur Fläche, nicht zur Browser-Voreinstellung */
+.inhalt .bes-toggle-btn { color: var(--tinte); }
 
 /* Karten: Rand statt Schatten, runde Formen wie im Rest der Seite */
 .inhalt .bes-card,
 .inhalt .bes-member-card,
+.inhalt .member-card,
 .inhalt .bes-event-card {
 	border: 1px solid var(--linie);
 	box-shadow: none;

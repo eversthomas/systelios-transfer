@@ -16,10 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function stt_shortcodes() {
-	// ENTSCHEIDUNG D2: Shortcodes aus dem Plugin BSEasy Sync (bes_members, bes_kalender). Bitte prüfen, vor allem die Kalender-ID.
+	// ENTSCHEIDUNG D2: Shortcodes aus dem Plugin BSEasy Sync (bes_members, bes_kalender). Kalender-IDs in BSEasy Sync: transfer, mitglieder, intern.
 	return array(
 		'verzeichnis'            => '[bes_members view="toggle"]',
-		'termine_transferabend'  => '[bes_kalender id="transferabend" limit="10"]',
+		'termine_transferabend'  => '[bes_kalender id="transfer" limit="10"]',
 		// ENTSCHEIDUNG D5: Das Plugin kennt keine URL-Parameter für Filter, daher auf der Startseite nur ein Knopf zum Verzeichnis.
 		'verzeichnis_parameter'  => array(),
 	);

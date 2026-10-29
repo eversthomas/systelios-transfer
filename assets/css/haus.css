@@ -36,6 +36,10 @@
 
   /* Logo-Hintergrund: im Dark Mode eine helle Plakette, damit das graue Logo lesbar bleibt */
   --logo-grund: transparent;
+
+  /* Fehlermeldungen (Kontaktformular) */
+  --fehler: #8A1F1F;
+  --fehler-rand: #A12A2A;
   color-scheme: light dark;
 }
 

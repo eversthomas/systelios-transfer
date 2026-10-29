@@ -78,6 +78,17 @@ function stt_familie_bereinigen( $roh ) {
  * Einstellungen anmelden (jede Option mit sanitize_callback).
  */
 function stt_einstellungen_anmelden() {
+	register_setting(
+		'stt_einstellungen',
+		'stt_farbschema',
+		array(
+			'type'              => 'string',
+			'sanitize_callback' => static function ( $wert ) {
+				return in_array( $wert, array( 'hell', 'dunkel' ), true ) ? $wert : 'auto';
+			},
+			'default'           => 'auto',
+		)
+	);
 	register_setting( 'stt_einstellungen', 'stt_newsletter_ueberschrift', array( 'type' => 'string', 'sanitize_callback' => 'sanitize_text_field', 'default' => '' ) );
 	register_setting( 'stt_einstellungen', 'stt_newsletter_text', array( 'type' => 'string', 'sanitize_callback' => 'sanitize_textarea_field', 'default' => '' ) );
 	register_setting( 'stt_einstellungen', 'stt_newsletter_url', array( 'type' => 'string', 'sanitize_callback' => 'esc_url_raw', 'default' => '' ) );
@@ -114,6 +125,32 @@ function stt_einstellungen_seite() {
 		<h1><?php esc_html_e( 'Transfer-Einstellungen', 'systelios-transfer' ); ?></h1>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'stt_einstellungen' ); ?>
+
+			<h2><?php esc_html_e( 'Darstellung', 'systelios-transfer' ); ?></h2>
+			<table class="form-table" role="presentation">
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Farbschema der Website', 'systelios-transfer' ); ?></th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text"><?php esc_html_e( 'Farbschema der Website', 'systelios-transfer' ); ?></legend>
+							<?php
+							$schemata = array(
+								'auto'   => __( 'Automatisch (folgt der Einstellung des Geräts)', 'systelios-transfer' ),
+								'hell'   => __( 'Immer hell', 'systelios-transfer' ),
+								'dunkel' => __( 'Immer dunkel', 'systelios-transfer' ),
+							);
+							foreach ( $schemata as $wert => $label ) :
+								?>
+								<label style="display:block;margin-bottom:.4rem">
+									<input type="radio" name="stt_farbschema" value="<?php echo esc_attr( $wert ); ?>" <?php checked( stt_farbschema(), $wert ); ?>>
+									<?php echo esc_html( $label ); ?>
+								</label>
+							<?php endforeach; ?>
+						</fieldset>
+						<p class="description"><?php esc_html_e( 'Besucher*innen bekommen keinen Umschalter. Der Block-Editor bleibt immer hell.', 'systelios-transfer' ); ?></p>
+					</td>
+				</tr>
+			</table>
 
 			<h2><?php esc_html_e( 'Newsletter-Hinweis (Fußzeile)', 'systelios-transfer' ); ?></h2>
 			<p><?php esc_html_e( 'Der Newsletter gehört LEBENSART. Hier erscheint nur ein Hinweis mit Link, kein Formular. Ohne Adresse wird nichts angezeigt.', 'systelios-transfer' ); ?></p>

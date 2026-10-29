@@ -21,15 +21,36 @@ function stt_asset_version( $pfad ) {
 }
 
 /**
+ * Farbschema der Website: auto (folgt dem System) | hell | dunkel. Einstellung unter Design → Transfer-Einstellungen.
+ *
+ * @return string
+ */
+function stt_farbschema() {
+	$wert = get_option( 'stt_farbschema', 'auto' );
+	return in_array( $wert, array( 'hell', 'dunkel' ), true ) ? $wert : 'auto';
+}
+
+/**
  * Stylesheets und Skripte einbinden.
  */
 function stt_assets_laden() {
-	$css = array( 'familie', 'haus', 'dunkel', 'layout', 'komponenten', 'bloecke' );
-	$vor = array();
+	$css       = array( 'familie', 'haus', 'dunkel', 'layout', 'komponenten', 'bloecke' );
+	$farbschema = stt_farbschema();
+	$vor       = array();
 	foreach ( $css as $name ) {
+		$medium = 'all';
+		if ( 'dunkel' === $name ) {
+			if ( 'hell' === $farbschema ) {
+				continue;
+			}
+			$medium = 'auto' === $farbschema ? '(prefers-color-scheme: dark)' : 'all';
+		}
 		$pfad = 'assets/css/' . $name . '.css';
-		wp_enqueue_style( 'stt-' . $name, STT_URI . '/' . $pfad, $vor, stt_asset_version( $pfad ) );
+		wp_enqueue_style( 'stt-' . $name, STT_URI . '/' . $pfad, $vor, stt_asset_version( $pfad ), $medium );
 		$vor = array( 'stt-' . $name );
+	}
+	if ( 'hell' === $farbschema ) {
+		wp_add_inline_style( 'stt-haus', ':root{color-scheme:light}' );
 	}
 
 	// Druckansicht: eigene Datei, wird nur beim Drucken geladen.

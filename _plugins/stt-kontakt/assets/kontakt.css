@@ -11,9 +11,9 @@
 	background: var(--feld, #fff); border: 2px solid var(--feld-rand, #9C8B63); border-radius: var(--radius-feld, 12px);
 }
 .stt-kontakt textarea { min-height: 10rem; }
-.stt-kontakt [aria-invalid="true"] { border-color: #A12A2A; }
-.stt-kontakt__feldfehler { margin: 0; color: #8A1F1F; font-size: .9375rem; font-weight: 600; }
-.stt-kontakt__fehler { padding: 1rem 1.25rem; border: 2px solid #A12A2A; border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
+.stt-kontakt [aria-invalid="true"] { border-color: var(--fehler-rand, #A12A2A); }
+.stt-kontakt__feldfehler { margin: 0; color: var(--fehler, #8A1F1F); font-size: .9375rem; font-weight: 600; }
+.stt-kontakt__fehler { padding: 1rem 1.25rem; border: 2px solid var(--fehler-rand, #A12A2A); border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
 .stt-kontakt__fehler ul { margin: .5rem 0 0; padding-left: 1.25rem; }
 .stt-kontakt__datenschutz { margin: 0; font-size: .9375rem; color: var(--tinte-leise, #5E6B72); }
 .stt-kontakt__knopf {
@@ -27,8 +27,3 @@
 .stt-kontakt--erfolg p { padding: 1rem 1.25rem; border: 2px solid var(--haus, #F6A500); border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
 @media (prefers-reduced-motion: reduce) { .stt-kontakt__knopf:hover { transform: none; } }
 
-@media (prefers-color-scheme: dark) {
-	.stt-kontakt [aria-invalid="true"],
-	.stt-kontakt__fehler { border-color: #FF9A9A; }
-	.stt-kontakt__feldfehler { color: #FFB4B4; }
-}
