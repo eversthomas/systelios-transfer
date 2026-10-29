@@ -36,8 +36,10 @@ function stt_block_stile() {
 			'nummern-gross' => __( 'Große Nummern', 'systelios-transfer' ),
 		),
 		'core/paragraph' => array(
-			'lead'    => __( 'Einleitung', 'systelios-transfer' ),
-			'hinweis' => __( 'Hinweis', 'systelios-transfer' ),
+			'lead'       => __( 'Einleitung', 'systelios-transfer' ),
+			'hinweis'    => __( 'Hinweis', 'systelios-transfer' ),
+			'augenbraue' => __( 'Augenbraue', 'systelios-transfer' ),
+			'tag'        => __( 'Etikett', 'systelios-transfer' ),
 		),
 	);
 

@@ -119,3 +119,49 @@ p.is-style-hinweis {
 .wp-block-details { border: 1px solid var(--linie); border-radius: var(--radius-feld); padding: .25rem 1.25rem; }
 .wp-block-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--ueberschrift); }
 .wp-block-columns { gap: 1.5rem 3rem; }
+
+/* ---------- Rhythmus innerhalb von Gruppen und Spalten (statt Block-Abstand aus dem Editor) ---------- */
+:is(.wp-block-group, .wp-block-column) :is(p, ul, ol, figure, blockquote, details) { margin-block: 0 1em; }
+:is(.wp-block-group, .wp-block-column) :is(h2, h3, h4) { margin-block: 1.4em .5em; }
+:is(.wp-block-group, .wp-block-column) :is(h1, h2, h3, h4, p, ul, ol, figure, blockquote, details):first-child { margin-top: 0; }
+:is(.wp-block-group, .wp-block-column) :is(h1, h2, h3, h4, p, ul, ol, figure, blockquote, details):last-child { margin-bottom: 0; }
+:is(.wp-block-group, .wp-block-column) :is(h1) { margin-block: 0 .35em; }
+:is(.wp-block-group, .wp-block-column) .wp-block-buttons { margin-top: 1.5rem; }
+
+/* ---------- Raster aus Karten: umbrechend statt starr nebeneinander ---------- */
+.wp-block-columns.stt-raster { flex-wrap: wrap !important; }
+.wp-block-columns.stt-raster > .wp-block-column { flex: 1 1 16rem !important; }
+.wp-block-columns.stt-raster > .wp-block-column > .is-style-karte { height: 100%; }
+
+/* ---------- Karten mit Punkt ---------- */
+.is-style-karte.hat-punkt::before {
+	content: ""; display: block; width: 14px; height: 14px; margin-bottom: .9rem;
+	border-radius: 50%; background: var(--haus);
+}
+.is-style-karte.hat-punkt--gross::before { width: 52px; height: 52px; margin-bottom: 1.1rem; }
+
+/* ---------- Kleine Fläche (Sprungleiste, Suchfläche) ---------- */
+.wp-block-group.is-style-warm.stt-klein {
+	padding: clamp(1.25rem, 3vw, 2rem); border-radius: var(--radius-karte);
+}
+
+/* ---------- Etikett und Augenbraue ---------- */
+p.is-style-tag {
+	display: inline-block; padding: 4px 14px; border-radius: var(--radius-bedien);
+	background: var(--flaeche-warm); color: var(--haus-text); font-size: .875rem; font-weight: 600;
+}
+.is-style-karte p.is-style-tag { border: 1px solid var(--linie); }
+p.is-style-augenbraue {
+	display: flex; align-items: center; gap: .6rem; margin-bottom: 1.25rem;
+	font-size: var(--fs-klein); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--haus-text);
+}
+p.is-style-augenbraue::before {
+	content: ""; flex: none; width: 36px; height: 12px;
+	background:
+		radial-gradient(circle at 6px 6px, var(--haus) 0 5px, transparent 5.5px),
+		radial-gradient(circle at 20px 6px, var(--haus) 0 3.5px, transparent 4px),
+		radial-gradient(circle at 30px 6px, var(--haus) 0 2.5px, transparent 3px);
+}
+
+/* Bilder in Spalten füllen die Spalte und werden sauber zugeschnitten. */
+.wp-block-column > .wp-block-image img { width: 100%; max-height: 460px; object-fit: cover; }

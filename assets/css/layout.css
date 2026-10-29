@@ -14,13 +14,17 @@ main:focus { outline: none; }
 }
 .inhalt > .alignwide { max-width: calc(var(--max) - 2 * var(--pad)); }
 .inhalt > .alignfull { max-width: none; margin-inline: 0; }
-/* Bänder (Warm/Dunkel) laufen über die volle Breite, ihr Inhalt sitzt wieder im Raster. */
-.inhalt > .wp-block-group:is(.is-style-warm, .is-style-dunkel) {
+/* Bänder (Warm/Dunkel) und Sektionen laufen über die volle Breite, ihr Inhalt sitzt wieder im Raster.
+   Gilt auch für Abschnitte im gesperrten Startseiten-Muster (Eltern-Gruppe ist ebenfalls volle Breite). */
+.inhalt .wp-block-group.alignfull:is(.is-style-warm, .is-style-dunkel, .stt-sektion) {
 	max-width: none; margin-inline: 0;
 	padding-inline: max(var(--pad), (100% - var(--max)) / 2 + var(--pad));
 }
-.inhalt > .wp-block-group:is(.is-style-warm, .is-style-dunkel) > :where(:not(.alignwide):not(.alignfull)) { max-width: 46rem; }
-.inhalt > .wp-block-group:is(.is-style-warm, .is-style-dunkel) > .alignwide { max-width: none; }
+.inhalt .wp-block-group.stt-sektion { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.inhalt .wp-block-group.alignfull:is(.is-style-warm, .is-style-dunkel, .stt-sektion) > :where(:not(.alignwide):not(.alignfull)) { max-width: 46rem; }
+.inhalt .wp-block-group.alignfull:is(.is-style-warm, .is-style-dunkel, .stt-sektion) > .alignwide { max-width: none; }
+/* Das gesperrte Startseiten-Muster hat keinen eigenen Abstand. */
+.inhalt > .wp-block-group.alignfull:not([class*="is-style"]):not(.stt-sektion) { padding: 0; }
 .inhalt > * + * { margin-top: 1.25em; }
 .inhalt > * + h2 { margin-top: 2.25em; }
 .inhalt > * + h3,
