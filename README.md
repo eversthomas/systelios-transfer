@@ -34,7 +34,10 @@ Skills, Referenzen und ein Export-Skript für die bestehenden Inhalte.
 | `referenz/entwurf/` | Der abgestimmte visuelle Entwurf (3 Seiten) |
 | `referenz/lebensart/` | Auszüge aus dem LEBENSART-Theme (CSS, Familienmodul, Schriften) |
 | `referenz/*.css`, `referenz/theme.json` | Entwürfe für Tokens, Familienfundament und theme.json |
-| `tools/export-inhalte.php` | Export der bestehenden Inhalte als Fallback-Grundlage |
+| `tools/export-inhalte.php` | Export der bestehenden Inhalte als Fallback-Grundlage (optional; die Fallback-Muster wurden aus den öffentlichen Seiten übernommen) |
+| `tools/paket.sh` | baut die Auslieferungs-ZIPs (Theme und Kontaktformular-Plugin) in `dist/` |
+| `_plugins/stt-kontakt/` | Kontaktformular-Plugin (Entscheidung D3), wird separat installiert |
+| `docs/09-live-umstellung.md` | Checkliste für die Umstellung der Live-Seite |
 | `inhalte/` | Zielordner des Exports; Ausgangsmaterial für die Fallback-Muster |
 
 ## Offene Entscheidungen
