@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>sysTelios Transfer – Therapeut*innen und Coaches</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,500;1,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#8F5600;text-underline-offset:0.2em;text-decoration-thickness:1.5px}
+a:hover{color:#6B4000;text-decoration-thickness:3px}
+*{box-sizing:border-box}
+@media (max-width: 900px){
+  .st-nav{display:none !important}
+  .st-menu{display:inline-flex !important}
+}
+</style>
+</helmet>
+<div style="font-family: 'Barlow', 'Segoe UI', system-ui, sans-serif; color: #2F3A40; background: #FFFFFF; font-size: 18px; line-height: 1.6;">
+
+<header style="position: sticky; top: 0; z-index: 10; background: #FFFFFF; border-bottom: 1px solid #E9DFCC;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); height: 84px; display: flex; align-items: center; gap: 32px;">
+    <a href="Main.dc.html" style="display: block; flex: none; width: 132px;" aria-label="sysTelios Transfer – Startseite"><img src="/_blob/f307f04133f9eb59f5d674037b107c45" alt="sysTelios Transfer" style="display: block; width: 100%; height: auto;"></a>
+    <nav class="st-nav" aria-label="Hauptmenü" style="margin-left: auto; display: flex; align-items: center; gap: 28px;">
+      <a href="Main.dc.html" style="color: #2F3A40; text-decoration: none; font-weight: 500; font-size: 17px; padding: 8px 0; border-bottom: 3px solid transparent;">Startseite</a>
+      <a href="#" style="color: #2F3A40; text-decoration: none; font-weight: 500; font-size: 17px; padding: 8px 0; border-bottom: 3px solid transparent;">Angebote</a>
+      <a href="#" aria-current="page" style="color: #2F3A40; text-decoration: none; font-weight: 600; font-size: 17px; padding: 8px 0; border-bottom: 3px solid #F6A500;">Therapeut*innen und Coaches</a>
+      <a href="Hypnosystemik.dc.html" style="color: #2F3A40; text-decoration: none; font-weight: 500; font-size: 17px; padding: 8px 0; border-bottom: 3px solid transparent;">Was ist Hypnosystemik</a>
+      <a href="#" style="color: #2F3A40; text-decoration: none; font-weight: 500; font-size: 17px; padding: 8px 0; border-bottom: 3px solid transparent;">Kontakt</a>
+    </nav>
+    <button class="st-menu" type="button" aria-label="Menü öffnen" style="display: none; margin-left: auto; min-width: 44px; min-height: 44px; border: 2px solid #4D5A62; border-radius: 999px; background: transparent; color: #4D5A62; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; font: inherit; font-weight: 600; font-size: 15px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      Menü
+    </button>
+  </div>
+</header>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px) 0;">
+  <nav aria-label="Brotkrumen" style="font-size: 15px; display: flex; gap: 8px; align-items: center; color: #5E6B72;">
+    <a href="Main.dc.html">Start</a><span aria-hidden="true">›</span><span aria-current="page">Therapeut*innen und Coaches</span>
+  </nav>
+  <h1 style="margin: 16px 0 0; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.06; font-weight: 700; font-style: {{hs}}; letter-spacing: -0.01em; color: #4D5A62; padding-bottom: 0.08em;">Begleiter*innen im Netzwerk</h1>
+  <p style="margin: 20px 0 0; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.5; max-width: 52ch;">Therapeut*innen, Coaches und Berater*innen mit hypnosystemischer Haltung – vor Ort und online.</p>
+</section>
+
+<!-- Filter: drei Hauptfilter, Rest aufklappbar -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 48px) 0;">
+  <form aria-label="Verzeichnis filtern" style="background: #FCF6EB; border-radius: 24px; padding: 24px clamp(20px, 3vw, 32px);">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px 20px; align-items: flex-end;">
+      <div style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 6px;">
+        <label for="bg-suche" style="font-weight: 600; font-size: 15px;">Name, Ort oder PLZ</label>
+        <input id="bg-suche" type="search" placeholder="Suchen …" style="min-height: 52px; padding: 0 16px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;">
+      </div>
+      <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
+        <label for="bg-angebot" style="font-weight: 600; font-size: 15px;">Angebot</label>
+        <select id="bg-angebot" style="min-height: 52px; padding: 0 14px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;"><option>Alle</option><option>Therapie</option><option>Coaching Einzel</option><option>Coaching Team</option><option>Supervision</option><option>Organisationsberatung</option></select>
+      </div>
+      <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px;">
+        <label for="bg-ziel" style="font-weight: 600; font-size: 15px;">Zielgruppe</label>
+        <select id="bg-ziel" style="min-height: 52px; padding: 0 14px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;"><option>Alle</option><option>Erwachsene</option><option>Paare</option><option>Führungskräfte</option><option>Unternehmen</option></select>
+      </div>
+      <label style="flex: 0 0 auto; display: flex; align-items: center; gap: 10px; min-height: 52px; font-size: 17px; cursor: pointer;"><input type="checkbox" style="width: 22px; height: 22px; accent-color: #8F5600;"> nur online</label>
+    </div>
+    <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between;">
+      <button type="button" onClick="{{toggleMehr}}" aria-expanded="{{mehrAria}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; border: 0; background: transparent; font: inherit; font-size: 16px; font-weight: 600; color: #8F5600; cursor: pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><circle cx="9" cy="7" r="2.2" fill="#FCF6EB"></circle><line x1="4" y1="17" x2="20" y2="17"></line><circle cx="15" cy="17" r="2.2" fill="#FCF6EB"></circle></svg>
+        {{mehrLabel}}
+      </button>
+      <button type="button" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; font: inherit; font-size: 16px; color: #4D5A62; text-decoration: underline; cursor: pointer;">Filter zurücksetzen</button>
+    </div>
+    <sc-if value="{{mehr}}" hint-placeholder-val="{{false}}">
+      <div style="margin-top: 12px; padding-top: 20px; border-top: 1px solid #E3D6BC; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 20px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;"><label for="bg-land" style="font-weight: 600; font-size: 15px;">Land</label><select id="bg-land" style="min-height: 52px; padding: 0 14px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;"><option>Alle</option><option>Deutschland</option><option>Österreich</option><option>Schweiz</option></select></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><label for="bg-fin" style="font-weight: 600; font-size: 15px;">Finanzierungshinweis</label><select id="bg-fin" style="min-height: 52px; padding: 0 14px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;"><option>Alle</option></select></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;"><label for="bg-verb" style="font-weight: 600; font-size: 15px;">Verbände</label><select id="bg-verb" style="min-height: 52px; padding: 0 14px; border: 1.5px solid #CDBF9F; border-radius: 12px; background: #FFFFFF; font: inherit; font-size: 17px; color: #2F3A40;"><option>Alle</option></select></div>
+      </div>
+    </sc-if>
+  </form>
+</section>
+
+<!-- Ergebniszeile mit Ansichtswechsel -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 48px) 0; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between;">
+  <p style="margin: 0; font-weight: 600;">[Anzahl] Begleiter*innen</p>
+  <div role="group" aria-label="Ansicht" style="display: inline-flex; padding: 4px; border-radius: 999px; border: 1.5px solid #E9DFCC;">
+    <button type="button" onClick="{{zeigeKacheln}}" aria-pressed="{{kachelAria}}" style="min-height: 40px; padding: 0 20px; border: 0; border-radius: 999px; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; background: {{kachelBg}}; color: {{kachelFg}};">Kacheln</button>
+    <button type="button" onClick="{{zeigeKarte}}" aria-pressed="{{karteAria}}" style="min-height: 40px; padding: 0 20px; border: 0; border-radius: 999px; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; background: {{karteBg}}; color: {{karteFg}};">Karte</button>
+  </div>
+</section>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: 24px clamp(16px, 4vw, 48px) clamp(56px, 8vw, 112px);">
+  <sc-if value="{{karte}}" hint-placeholder-val="{{false}}">
+    <div style="height: 560px; border-radius: 24px; background: #F1EEE7; display: flex; align-items: center; justify-content: center; color: #5E6B72; font-weight: 600; text-align: center; padding: 24px;">[Kartenansicht aus dem Plugin]</div>
+  </sc-if>
+  <sc-if value="{{kacheln}}" hint-placeholder-val="{{true}}">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
+      <sc-for list="{{personen}}" as="p" hint-placeholder-count="6">
+        <article style="display: flex; flex-direction: column; border: 1.5px solid #E9DFCC; border-radius: 24px; overflow: hidden; background: #FFFFFF;">
+          <div style="aspect-ratio: 4 / 3; background: #FCF6EB; display: flex; align-items: center; justify-content: center; color: #B49B6C;">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"></circle><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5"></path></svg>
+            <span class="sr" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Porträtfoto</span>
+          </div>
+          <div style="padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
+            <div>
+              <h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700; font-style: {{hs}}; color: #4D5A62;">{{p.name}}</h3>
+              <p style="margin: 4px 0 0; font-size: 16px; color: #5E6B72; display: flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+                {{p.ort}}
+              </p>
+            </div>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5;"><strong style="font-weight: 600;">Angebote:</strong> {{p.angebote}}</p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px;">
+              <sc-for list="{{p.tags}}" as="t" hint-placeholder-count="2">
+                <li style="padding: 3px 12px; border-radius: 999px; background: #FCF6EB; color: #6B4000; font-size: 14px; font-weight: 500;">{{t}}</li>
+              </sc-for>
+            </ul>
+            <a href="#" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #F6A500; color: #1F2A2F; font-weight: 600; font-size: 16px; text-decoration: none;">Profil ansehen</a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </sc-if>
+</section>
+
+<footer style="background: #2F3A40; color: #F3F0EA;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; font-size: 15px;">
+    <span>© 2026 sysTelios TRANSFER</span>
+    <span style="display: flex; flex-wrap: wrap; gap: 12px 24px;"><a href="#" style="color: #F3F0EA;">Kontakt</a><a href="#" style="color: #F3F0EA;">Impressum</a><a href="#" style="color: #F3F0EA;">Datenschutzerklärung</a></span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"kursiv":{"editor":"boolean","default":true,"section":"Typografie"},"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mehr: false, ansicht: 'kacheln' };
+  }
+  renderVals() {
+    const k = this.props.kursiv ?? true;
+    const mehr = this.state.mehr;
+    const kacheln = this.state.ansicht === 'kacheln';
+    return {
+      hs: k ? 'italic' : 'normal',
+      mehr: mehr,
+      mehrAria: mehr ? 'true' : 'false',
+      mehrLabel: mehr ? 'Weniger Filter' : 'Weitere Filter',
+      toggleMehr: () => this.setState({ mehr: !mehr }),
+      kacheln: kacheln,
+      karte: !kacheln,
+      kachelAria: kacheln ? 'true' : 'false',
+      karteAria: kacheln ? 'false' : 'true',
+      kachelBg: kacheln ? '#4D5A62' : 'transparent',
+      kachelFg: kacheln ? '#FFFFFF' : '#4D5A62',
+      karteBg: kacheln ? 'transparent' : '#4D5A62',
+      karteFg: kacheln ? '#4D5A62' : '#FFFFFF',
+      zeigeKacheln: () => this.setState({ ansicht: 'kacheln' }),
+      zeigeKarte: () => this.setState({ ansicht: 'karte' }),
+      personen: [
+        { name: '[Name Begleiter*in]', ort: 'Heidelberg · auch online', angebote: 'Therapie, Coaching Einzel, Coaching Team', tags: ['Führungskräfte', 'Unternehmen'] },
+        { name: '[Name Begleiter*in]', ort: 'Berlin', angebote: 'Coaching Einzel, Coaching Team', tags: ['Erwachsene'] },
+        { name: '[Name Begleiter*in]', ort: 'Lunz am See · auch online', angebote: 'Therapie, Coaching Einzel, Supervision', tags: ['Erwachsene', 'Paare'] },
+        { name: '[Name Begleiter*in]', ort: 'Hamburg', angebote: 'Organisationsberatung, Supervision', tags: ['Unternehmen'] },
+        { name: '[Name Begleiter*in]', ort: 'München · auch online', angebote: 'Coaching Einzel', tags: ['Erwachsene', 'Führungskräfte'] },
+        { name: '[Name Begleiter*in]', ort: 'Zürich', angebote: 'Therapie', tags: ['Erwachsene', 'Paare'] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

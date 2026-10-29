@@ -1,0 +1,20 @@
+---
+description: Designsystem, Tokens und CSS-Konventionen – beim Arbeiten an CSS, theme.json und Templates
+globs: assets/css/**/*.css, theme.json, template-parts/**/*.php, header.php, footer.php, patterns/**/*.php
+alwaysApply: false
+---
+
+# Design und CSS
+
+- Quelle der Wahrheit: `docs/02-designsystem.md`. Visuelle Referenz: `referenz/entwurf/*.dc.html` (nur Werte/Aufbau ablesen, keine Inline-Styles übernehmen).
+- Zwei Ebenen: `assets/css/familie.css` = Familienkonstanten (identisch mit LEBENSART, Versionskommentar pflegen) · `assets/css/haus.css` = Hauswerte. Startpunkt: `referenz/familie.css`, `referenz/tokens.css`.
+- In Komponenten **nur Rollen-Variablen** verwenden (`--haus`, `--haus-text`, `--ueberschrift`, `--flaeche-warm` …), nie Hex-Werte.
+- `--haus` (#F6A500) nie als Textfarbe auf hellem Grund. Text in Orange = `--haus-text`.
+- Formsprache TRANSFER: rund. Flächen `--radius-flaeche`/`--radius-karte`, Buttons/Tags `--radius-bedien` (999px), Felder `--radius-feld`.
+- Kopfleiste 68px (`--kopf-h`), aktive Menüpunkte 3px-Unterstrich in `--haus`.
+- Kein bildschirmfüllender Hero, kein Canvas, keine Scroll-Animationen. Übergänge nur mit `var(--ease)` und unter `prefers-reduced-motion` aus.
+- Layout mit Flex/Grid + `gap`; mobil zuerst denken, Umbrüche über `flex-wrap`/`auto-fit`. Breakpoint fürs Menü: 1060px (wie LEBENSART).
+- Klassennamen deutsch, BEM-artig: `.seitenkopf`, `.seitenkopf__lead`, `.karte--angebot`.
+- Block-Stile als `.is-style-<name>` in `bloecke.css`; dieselbe Datei wird als Editor-Style geladen.
+- Plugin-Anbindung (BSEasy Sync) ausschließlich in `plugin-bseasy.css`, mit möglichst schwachen Selektoren unter einer Wrapper-Klasse, nie `!important` außer gegen Inline-Styles des Plugins.
+- Kontraste prüfen: Text ≥ 4,5:1, UI ≥ 3:1. Feldrand `--feld-rand` #9C8B63 (nicht #CDBF9F aus dem Entwurf).

@@ -1,0 +1,17 @@
+---
+description: Barrierefreiheit und Qualität – bei Templates, Formularen, JS und vor Abschluss jeder Phase
+globs: **/*.php, assets/js/**/*.js, assets/css/**/*.css
+alwaysApply: false
+---
+
+# Barrierefreiheit (WCAG 2.2 AA) und Qualität
+
+- Semantik vor ARIA: echte `<button>`, `<a href>`, `<nav aria-label>`, `<main id="inhalt">`, Skip-Link als erstes Element.
+- Menüknopf: `aria-expanded`, `aria-controls`, sichtbares Wort „Menü“; Escape schließt; Fokus zurück auf den Knopf.
+- Formulare: `<label for>`, Pflichtfelder mit `required` + Text „(Pflichtfeld)“, Fehler mit `aria-describedby` und Fokus auf die erste Fehlermeldung.
+- Dekorative SVGs `aria-hidden="true"`, informative mit `role="img"` + `aria-label`. Keine Emojis als Icons.
+- Zielgrößen ≥ 44×44 px. Fokus sichtbar (`:focus-visible`), nie `outline: none` ohne Ersatz.
+- Bilder mit Alt-Text aus der Mediathek; dekorative Bilder `alt=""`.
+- Kontrast: Text ≥ 4,5:1, große Schrift/UI ≥ 3:1.
+- JS: Vanilla, `defer`, kein globaler Namensraum außer `window.stt`, funktioniert ohne JS degradiert (Menü als Liste sichtbar).
+- Vor Abschluss einer Phase: Skill `.cursor/skills/theme-pruefen/SKILL.md` ausführen.

@@ -1,0 +1,16 @@
+---
+description: Wirkungsfamilie, Newsletter-Hinweis, Lernreise, SEO und Einstellungen
+globs: inc/familie.php, inc/shortcodes.php, inc/seo.php, inc/admin/einstellungen.php, template-parts/familienleiste.php, template-parts/newsletter-hinweis.php, patterns/familienhinweis.php, patterns/lernreise-teaser.php, patterns/inhalt-lernreise.php
+alwaysApply: false
+---
+
+# Familie, Newsletter, Lernreise, SEO
+
+- Quelle: `docs/05-familie-newsletter-lernreise-seo.md`. Datenmodell der Familie wie LEBENSART (`referenz/lebensart/familie.php`).
+- `stt_familie_daten()` ist die **einzige** Datenquelle der Familie (später austauschbar gegen REST von LEBENSART).
+- Häuser ohne `link` als Text ausgeben, nicht als Link. Eigenes Haus (`wir`) markieren.
+- Familienleiste nur auf Startseite und Kontaktseite, nicht seitenweit.
+- Newsletter: nur Hinweis + Link (Ziel aus Einstellungen), kein Formular, keine Brevo-API. Leere URL → keine Ausgabe.
+- Lernreise: alle Buttons nutzen `stt_lernreise_url`. Seite `lernreise` mit Platzhaltertexten, nichts von LEBENSART kopieren.
+- Kein eigenes JSON-LD, solange `stt_jsonld_familie` aus ist. Nie doppelt zum SEO-Plugin ausgeben.
+- Links zwischen den Familienseiten ohne `nofollow`, mit beschreibendem Linktext.

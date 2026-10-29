@@ -1,0 +1,20 @@
+---
+description: PHP- und WordPress-Konventionen, Sicherheit
+globs: **/*.php
+alwaysApply: false
+---
+
+# PHP und WordPress
+
+- Jede Datei beginnt mit `if ( ! defined( 'ABSPATH' ) ) { exit; }` (außer Muster-Dateien, die WordPress selbst lädt – dort ebenfalls erlaubt).
+- WordPress Coding Standards (Tabs, Yoda, `array()`), PHP ≥ 8.1, keine Kurzschreibweisen, die WPCS anmahnt.
+- `functions.php` enthält nur `require_once` der Dateien in `inc/`.
+- **Ausgabe immer escapen**: `esc_html`, `esc_attr`, `esc_url`, `wp_kses_post`. Übersetzbare Texte mit `esc_html__( '…', 'systelios-transfer' )`.
+- **Eingaben immer prüfen**: Nonce (`wp_nonce_field`/`check_admin_referer`), Capability (`current_user_can`), sanitisieren (`sanitize_text_field`, `sanitize_key`, `sanitize_hex_color`, `esc_url_raw`, `absint`, `wp_kses_post`).
+- Admin-Aktionen über `admin-post.php` (`admin_post_stt_*`), danach `wp_safe_redirect` + `exit`.
+- Einstellungen über die Settings API, eine Option je Bereich (Arrays), `sanitize_callback` Pflicht.
+- Keine direkten SQL-Abfragen; falls unvermeidbar `$wpdb->prepare`.
+- Kein `eval`, kein `extract`, keine Dateischreibzugriffe im Theme zur Laufzeit, keine Datei-Uploads außer über die Mediathek.
+- Templates schlank halten: Logik in `inc/`, Markup in Templates/`template-parts/`. `get_template_part()` mit `$args`.
+- Externe Links: `rel="noopener"`; Familienlinks ohne `nofollow`.
+- Keine Fehlerunterdrückung mit `@`. Mit `WP_DEBUG` aktiv darf keine Meldung entstehen.

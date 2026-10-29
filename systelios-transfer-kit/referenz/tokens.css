@@ -1,0 +1,59 @@
+/* ENTWURF – Hausvariablen sysTelios TRANSFER
+   Rollen-Namen sind familienweit gleich (siehe docs/02-designsystem.md),
+   nur die Werte gehören zum Haus. Ziel im Theme: assets/css/haus.css */
+
+:root {
+  /* Haus */
+  --haus: #F6A500;            /* Logo-Orange – Fläche, Punkte; nie Text auf Weiß */
+  --auf-haus: #1F2A2F;        /* Text/Buttons auf Orange, 7,8:1 */
+  --haus-text: #8F5600;       /* Orange als Text/Link, 6,0:1 auf Weiß, 5,6:1 auf Creme */
+  --haus-text-hover: #6B4000;
+  --marke-grau: #6F6E6E;      /* Logo-Grau, nur dekorativ */
+
+  /* Text */
+  --ueberschrift: #4D5A62;
+  --tinte: #2F3A40;
+  --tinte-leise: #5E6B72;
+
+  /* Flächen und Linien */
+  --grund: #FFFFFF;
+  --flaeche-warm: #FCF6EB;
+  --flaeche-dunkel: #3A454C;
+  --flaeche-dunkler: #2F3A40;
+  --auf-dunkel: #F3F0EA;
+  --auf-dunkel-leise: #D6D2CA;
+  --linie: #E9DFCC;
+  --linie-dunkel: #55616A;
+  --feld: #FFFFFF;
+  --feld-rand: #9C8B63;       /* 3,3:1 zu Weiß */
+  --fokus: #4D5A62;
+
+  /* Formsprache: rund (Kreise aus dem Logo) */
+  --radius-flaeche: 28px;
+  --radius-karte: 24px;
+  --radius-feld: 12px;
+  --radius-bedien: 999px;
+}
+
+/* Phase 6 (optional): folgt dem System, kein Umschalter.
+   Jede Kombination vor Freigabe auf 4,5:1 (Text) bzw. 3:1 (Bedienelemente) prüfen. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --haus: #FFC14D;
+    --auf-haus: #1F2A2F;
+    --haus-text: #FFC14D;      /* 10,8:1 auf --grund */
+    --haus-text-hover: #FFD58A;
+    --ueberschrift: #E8EDEF;
+    --tinte: #E8EDEF;
+    --tinte-leise: #A9B6BC;
+    --grund: #141B1F;
+    --flaeche-warm: #1C262B;
+    --flaeche-dunkel: #0E1417;
+    --flaeche-dunkler: #0B1013;
+    --linie: #2E3B42;
+    --linie-dunkel: #2E3B42;
+    --feld: #1C262B;
+    --feld-rand: #7D8E96;
+    --fokus: #FFC14D;
+  }
+}

@@ -1,0 +1,15 @@
+---
+description: Fallback-System für bestehende Inhalte und die Admin-Seite Transfer-Inhalte
+globs: inc/inhalte.php, inc/admin/inhalte.php, inc/config.php, patterns/inhalt-*.php, assets/js/editor-hinweis.js, inhalte/**, tools/**
+alwaysApply: false
+---
+
+# Inhalte und Fallback
+
+- Quelle: `docs/04-inhalte-und-fallback.md`. Zustände über Meta `_stt_inhalt` (leer | `eigen` | `fallback`).
+- Zuordnung Seite → Muster nur in `stt_fallback_karte()` (`inc/config.php`), Schlüssel = `post_name`, `__startseite` = `page_on_front`.
+- Elementor-Erkennung: `get_post_meta( $id, '_elementor_edit_mode', true ) === 'builder'`. Elementor muss dafür nicht aktiv sein. Elementor-Meta nie schreiben.
+- Rendering eines Musters: Inhalt aus `WP_Block_Patterns_Registry::get_instance()->get_registered( $slug )['content']`, dann `do_blocks()` und `do_shortcode()` in der Reihenfolge, die `the_content` auch nutzt (am einfachsten: `apply_filters( 'the_content', $inhalt )`).
+- Übernehmen = `wp_update_post()` (Revision entsteht), Textauszug/Beitragsbild nur setzen, wenn leer. Nonce + `current_user_can( 'edit_page', $id )`.
+- Neue Fallback-Muster ausschließlich mit dem Skill `.cursor/skills/inhalt-zu-muster/SKILL.md` erstellen, Ausgangsmaterial `inhalte/<slug>.html` + `inhalte/index.json`.
+- Wortlaut der Inhalte nicht verändern; Auffälligkeiten in `inhalte/AUFFAELLIGKEITEN.md`.

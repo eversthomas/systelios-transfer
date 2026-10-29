@@ -1,0 +1,17 @@
+---
+description: Block-Editor-Leitplanken, Block-Stile und Muster
+globs: patterns/**/*.php, inc/editor.php, inc/bloecke.php, inc/muster.php, assets/css/bloecke.css
+alwaysApply: false
+---
+
+# Editor, Block-Stile, Muster
+
+- Quelle: `docs/03-pflegekonzept.md` (erlaubte Blöcke, Block-Stile, Muster-Liste).
+- Muster-Dateien in `patterns/`, Kopfkommentar mit `Title`, `Slug: stt/<name>`, `Categories: stt-transfer`, ggf. `Inserter: no`, `Description`.
+- In Mustern nur Blöcke aus der Erlaubt-Liste und nur Block-Stile aus Doku 03. Keine Inline-Farben, keine `style`-Attribute mit Farben/Größen.
+- Überschriften in Inhalten beginnen bei **H2**. H1 kommt immer aus dem Seitentitel.
+- Interne Links in Mustern über `<?php echo esc_url( home_url( '/pfad/' ) ); ?>`, Bilder über Anhang-IDs (`wp_get_attachment_image_url( $id, 'large' )` + Klasse `wp-image-<id>`); fehlt der Anhang, Bild weglassen.
+- Die Startseite ist **ein** Muster mit äußerer Gruppe `{"templateLock":"contentOnly"}`.
+- Platzhaltertexte in eckigen Klammern: `[Datum, Uhrzeit]`. Keine erfundenen Fakten, Zahlen oder Namen.
+- Gültiges Block-Markup: Jede Block-Kommentar-Struktur muss im Editor ohne „Dieser Block enthält unerwarteten Inhalt“ laden. Im Zweifel den Block im Editor bauen und das gespeicherte Markup übernehmen.
+- Synchronisierte Muster (`wp_block`) nur anlegen, wenn kein Beitrag mit Meta `_stt_kennung` = `<kennung>` existiert.

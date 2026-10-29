@@ -1,0 +1,18 @@
+---
+description: Grundregeln für das Theme sysTelios Transfer – gilt immer
+alwaysApply: true
+---
+
+# Projekt: Theme sysTelios Transfer
+
+- Klassisches WordPress-Theme (PHP-Templates) mit theme.json nur für Einstellungen. Kein FSE, kein Page-Builder.
+- Vor jeder Phase `AGENTS.md` und die passende Datei in `docs/` lesen. Plan: `docs/06-umsetzungsplan.md`.
+- Phase für Phase arbeiten, nach jeder Phase anhalten und Testpunkte aus `docs/07-testplan.md` nennen.
+- Offene Fragen: Voreinstellung aus `docs/08-entscheidungen.md`, Stelle mit `// ENTSCHEIDUNG D<n>:` markieren.
+- Präfix `stt_` (Funktionen, Optionen, Hooks), `_stt_` (Post-Meta), Text-Domain `systelios-transfer`.
+- Deutsch in Kommentaren, Admin-Texten und Frontend. Anrede „Sie“, Gendern mit `*`.
+- Keine externen Ressourcen (Fonts, CDNs, Tracking). Kein jQuery. Kein Build-Schritt.
+- BSEasy Sync wird nicht verändert; nur per Shortcode eingebunden und per CSS gestaltet.
+- Elementor-Daten nie verändern oder löschen.
+- Keine Inhalte von systelios-lebensart.de kopieren.
+- Entwicklungsordner (`docs/ referenz/ tools/ inhalte/ .cursor/`) nie aus Theme-Code referenzieren – sie werden nicht ausgeliefert. Ausnahme: `tools/` liest/schreibt `inhalte/`.
