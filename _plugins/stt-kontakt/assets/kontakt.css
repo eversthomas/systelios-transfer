@@ -1,0 +1,28 @@
+/* Kontaktformular – nutzt die Tokens des Themes sysTelios Transfer, mit eigenen Ersatzwerten. */
+.stt-kontakt { display: grid; gap: 1.25rem; max-width: 40rem; }
+.stt-kontakt__feld { display: grid; gap: .4rem; }
+.stt-kontakt label { font-weight: 600; font-size: .9375rem; }
+.stt-kontakt__pflicht { font-weight: 400; color: var(--tinte-leise, #5E6B72); }
+.stt-kontakt input[type="text"],
+.stt-kontakt input[type="email"],
+.stt-kontakt input[type="tel"],
+.stt-kontakt textarea {
+	width: 100%; min-height: 52px; padding: .75rem 1rem; font: inherit; color: var(--tinte, #2F3A40);
+	background: var(--feld, #fff); border: 2px solid var(--feld-rand, #9C8B63); border-radius: var(--radius-feld, 12px);
+}
+.stt-kontakt textarea { min-height: 10rem; }
+.stt-kontakt [aria-invalid="true"] { border-color: #A12A2A; }
+.stt-kontakt__feldfehler { margin: 0; color: #8A1F1F; font-size: .9375rem; font-weight: 600; }
+.stt-kontakt__fehler { padding: 1rem 1.25rem; border: 2px solid #A12A2A; border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
+.stt-kontakt__fehler ul { margin: .5rem 0 0; padding-left: 1.25rem; }
+.stt-kontakt__datenschutz { margin: 0; font-size: .9375rem; color: var(--tinte-leise, #5E6B72); }
+.stt-kontakt__knopf {
+	justify-self: start; min-height: 52px; padding: 0 1.6rem; font: inherit; font-weight: 600; font-size: 1.0625rem; cursor: pointer;
+	color: var(--auf-haus, #1F2A2F); background: var(--haus, #F6A500); border: 2px solid var(--haus, #F6A500); border-radius: var(--radius-bedien, 999px);
+}
+.stt-kontakt__knopf:hover { transform: translateY(-2px); }
+.stt-kontakt :focus-visible { outline: 3px solid var(--fokus, #4D5A62); outline-offset: 3px; }
+/* Honeypot: für Menschen und Hilfstechnik unsichtbar */
+.stt-kontakt__honig { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.stt-kontakt--erfolg p { padding: 1rem 1.25rem; border: 2px solid var(--haus, #F6A500); border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
+@media (prefers-reduced-motion: reduce) { .stt-kontakt__knopf:hover { transform: none; } }

@@ -98,3 +98,26 @@ html.menue-offen { overflow: hidden; }
 .fusszeile__claim { flex: 1 0 100%; margin: 0; font-size: 1.125rem; font-weight: 600; }
 .fusszeile__menue { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
 .fusszeile__menue a { display: inline-block; padding: .35rem 0; }
+
+/* ---------- Newsletter-Hinweis (Fußzeile) ---------- */
+.fusszeile a.btn { color: var(--auf-haus); }
+.fusszeile a.btn:hover { color: var(--auf-haus); }
+.newsletter-hinweis {
+	flex: 1 0 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+	padding-block: 1.25rem; border-block: 1px solid var(--linie-dunkel);
+}
+.newsletter-hinweis__titel {
+	display: flex; align-items: center; gap: .6rem; margin: 0;
+	font-size: 1.125rem; font-style: normal; color: var(--auf-dunkel);
+}
+.newsletter-hinweis__titel::before {
+	content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--fam-c, var(--haus));
+	box-shadow: 0 0 0 2px var(--auf-dunkel);
+}
+.newsletter-hinweis__text p { margin: .25rem 0 0; color: var(--auf-dunkel-leise); }
+
+/* ---------- Familienleiste: Rhythmus im Inhalt ---------- */
+.inhalt .familienleiste { margin-block: 1.5rem; }
+.familienleiste li > a,
+.familienleiste li > span:not(.sr) { color: var(--tinte); text-decoration-thickness: 1.5px; }
+.familienleiste li > a:hover { color: var(--haus-text-hover); }

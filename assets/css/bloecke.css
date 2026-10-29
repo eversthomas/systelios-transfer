@@ -165,3 +165,22 @@ p.is-style-augenbraue::before {
 
 /* Bilder in Spalten füllen die Spalte und werden sauber zugeschnitten. */
 .wp-block-column > .wp-block-image img { width: 100%; max-height: 460px; object-fit: cover; }
+
+/* ---------- Hinweis aus der Familie ---------- */
+.wp-block-group.is-style-karte[class*="ist-haus-"] {
+	border-color: color-mix(in srgb, var(--fam-c, var(--haus)) 55%, var(--linie));
+	border-left: 6px solid var(--fam-c, var(--haus));
+}
+.ist-haus-klinik { --fam-c: var(--fam-klinik, var(--haus)); }
+.ist-haus-akademie { --fam-c: var(--fam-akademie, var(--haus)); }
+.ist-haus-beratung { --fam-c: var(--fam-beratung, var(--haus)); }
+.ist-haus-thinktank { --fam-c: var(--fam-thinktank, var(--haus)); }
+.ist-haus-transfer { --fam-c: var(--fam-transfer, var(--haus)); }
+.ist-haus-lebensart { --fam-c: var(--fam-lebensart, var(--haus)); }
+[class*="ist-haus-"] p.is-style-augenbraue::before {
+	width: 14px; height: 14px; border-radius: 50%; background: var(--fam-c, var(--haus));
+}
+
+/* ---------- Verbundene Anbieter ---------- */
+.wp-block-columns.stt-anbieter { align-items: center; }
+.wp-block-columns.stt-anbieter .wp-block-image img { width: auto; max-width: 100%; max-height: 72px; object-fit: contain; border-radius: 0; }

@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( '' !== get_bloginfo( 'description' ) ) : ?>
 			<p class="fusszeile__claim"><?php bloginfo( 'description' ); ?></p>
 		<?php endif; ?>
+		<?php get_template_part( 'template-parts/newsletter-hinweis' ); ?>
 		<span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?></span>
 		<?php
 		wp_nav_menu(

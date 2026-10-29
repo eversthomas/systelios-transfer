@@ -1,0 +1,106 @@
+/* plugin-bseasy.css – bindet das Plugin BSEasy Sync (Verzeichnis, Kalender) an die Haus-Tokens an.
+   Nur CSS, der Plugin-Code bleibt unberührt. Die Variablen stehen am Inhaltsbereich und überstimmen so
+   die :root-Werte des Plugins, egal wann dessen Stylesheet geladen wird.
+
+   Variablen, die das Plugin ausliest (Stand BSEasy Sync V4, frontend/assets/frontend.css) und hier gesetzt werden:
+   --bes-yellow, --bes-yellow-light, --bes-yellow-dark, --bes-gray, --bes-surface, --bes-surface-2, --bes-tint,
+   --bes-border*, --bes-bg-light, --bes-bg-map-filter, --bes-bg-neutral*, --bes-text*, --bes-muted, --bes-btn-active*,
+   --bes-radius*, --bes-shadow*, --bes-focus, --gold*, --gray-*, --radius, --font-serif, --font-sans.
+   Wunsch an das Plugin: nur noch diese Variablen verwenden (keine festen Farben in frontend.css). */
+
+.inhalt {
+	--bes-yellow: var(--haus);
+	--bes-yellow-light: var(--haus);
+	--bes-yellow-dark: var(--haus-text);
+	--bes-gray: var(--marke-grau);
+
+	--bes-surface: var(--grund);
+	--bes-surface-2: var(--flaeche-warm);
+	--bes-tint: var(--flaeche-warm);
+	--bes-bg-light: var(--flaeche-warm);
+	--bes-bg-map-filter: var(--flaeche-warm);
+	--bes-bg-neutral: var(--flaeche-warm);
+	--bes-bg-neutral-hover: var(--grund);
+
+	--bes-border: var(--linie);
+	--bes-border-light: var(--linie);
+	--bes-border-medium: var(--feld-rand);
+	--bes-border-gray-light: var(--linie);
+	--bes-border-gray-medium: var(--feld-rand);
+	--bes-border-gray-dark: var(--feld-rand);
+
+	--bes-text: var(--tinte);
+	--bes-text-dark: var(--tinte);
+	--bes-text-light: var(--tinte);
+	--bes-text-muted: var(--tinte-leise);
+	--bes-muted: var(--tinte-leise);
+
+	--bes-btn-active: var(--ueberschrift);
+	--bes-btn-active-text: var(--grund);
+
+	--bes-radius: var(--radius-karte);
+	--bes-radius-sm: var(--radius-feld);
+	--bes-radius-xs: var(--radius-feld);
+
+	--bes-shadow: none;
+	--bes-shadow-hover: 0 6px 0 -2px color-mix(in srgb, var(--haus) 35%, transparent);
+	--bes-shadow-sm: none;
+	--bes-shadow-md: none;
+	--bes-shadow-filterbar: none;
+	--bes-focus: var(--fokus);
+	--bes-transition: .25s var(--ease);
+	--bes-transition-slow: .3s var(--ease);
+
+	--gold: var(--haus);
+	--gold-light: var(--haus);
+	--gold-mist: var(--flaeche-warm);
+	--gold-border: var(--linie);
+	--gray-text: var(--tinte);
+	--gray-mid: var(--tinte-leise);
+	--gray-pale: var(--flaeche-warm);
+	--gray-line: var(--linie);
+	--white: var(--grund);
+	--expand-bg: var(--grund);
+	--radius: var(--radius-karte);
+	--font-serif: var(--ff);
+	--font-sans: var(--ff);
+}
+
+/* Karten: Rand statt Schatten, runde Formen wie im Rest der Seite */
+.inhalt .bes-card,
+.inhalt .bes-member-card,
+.inhalt .bes-event-card {
+	border: 1px solid var(--linie);
+	box-shadow: none;
+}
+
+/* Bedienelemente: Tags und Knöpfe rund, Mindesthöhe wie überall */
+.inhalt .bes-toggle-btn,
+.inhalt .bes-load-more,
+.inhalt .bes-filterbar .bes-btn-reset {
+	border-radius: var(--radius-bedien);
+	min-height: 44px;
+	font-family: var(--ff);
+	font-weight: 600;
+}
+.inhalt .bes-toggle-buttons .bes-toggle-btn.active {
+	background: var(--ueberschrift);
+	color: var(--grund);
+	border-color: var(--ueberschrift);
+}
+
+/* Formularfelder im Verzeichnis: ausreichender Rand-Kontrast (WCAG 1.4.11) */
+.inhalt .bes-filterbar input,
+.inhalt .bes-filterbar select {
+	min-height: 48px;
+	border: 2px solid var(--feld-rand);
+	border-radius: var(--radius-feld);
+	background: var(--feld);
+	color: var(--tinte);
+	font: inherit;
+}
+.inhalt .bes-filterbar { border-radius: var(--radius-karte); background: var(--flaeche-warm); }
+
+/* Fokus sichtbar */
+.inhalt .bes-members-wrapper :focus-visible,
+.inhalt .bes-calendar :focus-visible { outline: 3px solid var(--fokus); outline-offset: 3px; }

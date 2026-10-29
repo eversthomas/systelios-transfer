@@ -1,7 +1,7 @@
 <?php
 /**
- * Startseite: gibt vorerst den Inhalt der Startseite aus.
- * Phase 3/4 ersetzen das durch das Startseiten-Muster (stt/startseite) bzw. den Fallback.
+ * Startseite: Seiteninhalt oder – solange die Startseite noch nicht übernommen ist – das Fallback-Muster
+ * (stt/startseite). Siehe inc/inhalte.php.
  *
  * @package systelios-transfer
  */
@@ -12,24 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-while ( have_posts() ) :
-	the_post();
-	$inhalt = trim( get_the_content() );
-	if ( '' === $inhalt ) {
-		// Vorläufig (Phase 3): leere Startseite zeigt das Gesamtmuster. Phase 4 ersetzt das durch das Fallback-System.
-		$muster = WP_Block_Patterns_Registry::get_instance()->get_registered( 'stt/startseite' );
-		$inhalt = $muster ? $muster['content'] : '';
+if ( is_page() ) {
+	while ( have_posts() ) {
+		the_post();
+		$html  = stt_seiteninhalt();
+		$titel = get_the_title();
 	}
-	$html = apply_filters( 'the_content', $inhalt );
-	// Die H1 steht im Einstieg des Startseiten-Musters; fehlt sie, kommt sie aus dem Seitentitel.
-	if ( false === stripos( $html, '<h1' ) ) {
-		echo '<h1 class="sr">' . esc_html( get_the_title() ) . '</h1>';
-	}
-	?>
-	<div class="inhalt">
-		<?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content-Filter ?>
-	</div>
-	<?php
-endwhile;
+} else {
+	// Startseite zeigt die neuesten Beiträge (keine statische Seite): Gesamtmuster ausgeben.
+	$muster = WP_Block_Patterns_Registry::get_instance()->get_registered( 'stt/startseite' );
+	$html   = $muster ? apply_filters( 'the_content', $muster['content'] ) : '';
+	$titel  = get_bloginfo( 'name' );
+}
 
+// Die H1 steht im Einstieg des Startseiten-Musters; fehlt sie, kommt sie aus dem Seitentitel.
+if ( false === stripos( $html, '<h1' ) ) {
+	echo '<h1 class="sr">' . esc_html( $titel ) . '</h1>';
+}
+?>
+<div class="inhalt">
+	<?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content-Filter ?>
+</div>
+<?php
 get_footer();

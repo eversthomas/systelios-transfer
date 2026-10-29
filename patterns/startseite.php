@@ -11,9 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Links über den Slug der Seite, egal wo sie im Seitenbaum steht.
 $u = static function ( $pfad ) {
-	return esc_url( home_url( $pfad ) );
+	return esc_url( stt_seiten_url( trim( $pfad, '/' ) ) );
 };
+$lebensart = stt_familie_haus( 'lebensart' );
+$hinweis   = stt_m_familienhinweis(
+	'lebensart',
+	'Hypnosystemik fördern',
+	'[Kurzer Text, wie Besucher*innen die Arbeit von LEBENSART unterstützen können.]',
+	array(
+		'text' => 'Zu sysTelios LEBENSART',
+		'url'  => $lebensart && ! empty( $lebensart['link'] ) ? $lebensart['link'] : home_url( '/' ),
+	)
+);
 
 $kontakt_ref = stt_sync_muster_id( 'kontaktflaeche' );
 $heil_ref    = stt_sync_muster_id( 'heilkunde' );
@@ -23,7 +34,6 @@ $bild_band     = stt_bild_block( stt_anhang_nach_name( 'kulptur' ), false, 'larg
 
 // ENTSCHEIDUNG D5: Statt einer Filtersuche nur ein Knopf zum Verzeichnis (das Plugin kennt keine URL-Parameter für Filter).
 // ENTSCHEIDUNG D11: Text der Lernreise-Karte ist ein Platzhalter.
-// Die Wirkungsfamilie (Familienleiste, verbundene Anbieter) folgt in Phase 5.
 ?>
 <!-- wp:group {"align":"full","templateLock":"contentOnly","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull"><!-- wp:group {"align":"full","className":"stt-sektion","layout":{"type":"constrained"}} -->
@@ -264,9 +274,13 @@ $bild_band     = stt_bild_block( stt_anhang_nach_name( 'kulptur' ), false, 'larg
 <p>Manchmal fühlen sich Erfahrungen an wie lose Teile, die nicht zusammenpassen wollen. In hypnosystemischer Haltung sind das keine Fehler, sondern wertvolle Puzzlestücke. Im gemeinsamen Schauen entsteht ein neues Bild – eins, das stimmiger und lebendiger wirkt.</p>
 <!-- /wp:paragraph --></blockquote>
 <!-- /wp:quote -->
+
+<?php echo $hinweis; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 <?php if ( $kontakt_ref > 0 ) : ?>
 
 <!-- wp:block {"ref":<?php echo (int) $kontakt_ref; ?>} /-->
 <?php endif; ?></div>
-<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<?php echo stt_m_familie_abschnitt(); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 <!-- /wp:group -->

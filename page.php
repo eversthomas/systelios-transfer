@@ -25,7 +25,7 @@ while ( have_posts() ) :
 	);
 	?>
 	<div class="inhalt">
-		<?php the_content(); ?>
+		<?php echo stt_seiteninhalt(); // phpcs:ignore WordPress.Security.EscapeOutput -- the_content-Filter ?>
 	</div>
 	<?php
 endwhile;
