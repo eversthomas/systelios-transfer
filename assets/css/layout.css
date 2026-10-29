@@ -1,0 +1,57 @@
+/* layout.css – Seitengerüst und Inhaltsbereich (nur Rollen-Variablen, keine Hex-Werte) */
+
+body { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1 0 auto; }
+main:focus { outline: none; }
+
+/* Inhaltsbereich: Blöcke linksbündig zur Raster-Kante des Seitenkopfs */
+.inhalt { padding-block: clamp(2rem, 5vw, 4rem) var(--sektion); }
+.inhalt > * {
+	--rand-links: max(var(--pad), (100% - var(--max)) / 2 + var(--pad));
+	max-width: 46rem;
+	margin-left: var(--rand-links);
+	margin-right: var(--pad);
+}
+.inhalt > .alignwide { max-width: calc(var(--max) - 2 * var(--pad)); }
+.inhalt > .alignfull { max-width: none; margin-inline: 0; }
+.inhalt > * + * { margin-top: 1.25em; }
+.inhalt > * + h2 { margin-top: 2.25em; }
+.inhalt > * + h3,
+.inhalt > * + h4 { margin-top: 1.75em; }
+.inhalt > * + .alignfull,
+.inhalt > .alignfull + * { margin-top: clamp(2rem, 5vw, 4rem); }
+
+.inhalt h4 { font-size: 1.125rem; font-weight: 700; color: var(--ueberschrift); margin-bottom: 0; }
+.inhalt p,
+.inhalt li { max-width: 68ch; }
+.inhalt ul,
+.inhalt ol { padding-left: 1.4em; }
+.inhalt li + li { margin-top: .35em; }
+.inhalt figcaption { font-size: var(--fs-klein); color: var(--tinte-leise); margin-top: .5rem; }
+
+.hinweis-leer { color: var(--tinte-leise); }
+
+/* Beitragsliste (index.php, Suche) */
+.beitragsliste { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+.beitragsliste__eintrag { padding-bottom: 1.5rem; border-bottom: 1px solid var(--linie); }
+.beitragsliste__titel { font-size: var(--fs-h3); }
+.beitragsliste__titel a { color: var(--ueberschrift); text-decoration: none; }
+.beitragsliste__titel a:hover { color: var(--haus-text); text-decoration: underline; }
+.beitragsliste__auszug { margin: .5rem 0 0; }
+
+.seitennavigation { margin-top: 2rem; }
+.seitennavigation .nav-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.seitennavigation .page-numbers { min-width: 44px; min-height: 44px; padding: 0 .75rem; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--linie); border-radius: var(--radius-bedien); text-decoration: none; }
+.seitennavigation .page-numbers.current { background: var(--haus); border-color: var(--haus); color: var(--auf-haus); font-weight: 600; }
+
+/* Suchformular */
+.search-form { display: flex; flex-wrap: wrap; gap: .75rem; max-width: 36rem; }
+.search-form label { flex: 1 1 14rem; }
+.search-form .search-field {
+	width: 100%; min-height: 52px; padding: 0 1.1rem; font: inherit; color: var(--tinte);
+	background: var(--feld); border: 2px solid var(--feld-rand); border-radius: var(--radius-feld);
+}
+.search-form .search-submit {
+	min-height: 52px; padding: 0 1.6rem; font: inherit; font-weight: 600; cursor: pointer;
+	background: var(--haus); color: var(--auf-haus); border: 2px solid var(--haus); border-radius: var(--radius-bedien);
+}

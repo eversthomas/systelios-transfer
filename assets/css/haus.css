@@ -1,0 +1,38 @@
+/* Hausvariablen sysTelios TRANSFER
+   Rollen-Namen sind familienweit gleich (siehe docs/02-designsystem.md),
+   nur die Werte gehören zum Haus. */
+
+:root {
+  /* Haus */
+  --haus: #F6A500;            /* Logo-Orange – Fläche, Punkte; nie Text auf Weiß */
+  --auf-haus: #1F2A2F;        /* Text/Buttons auf Orange, 7,8:1 */
+  --haus-text: #8F5600;       /* Orange als Text/Link, 6,0:1 auf Weiß, 5,6:1 auf Creme */
+  --haus-text-hover: #6B4000;
+  --marke-grau: #6F6E6E;      /* Logo-Grau, nur dekorativ */
+
+  /* Text */
+  --ueberschrift: #4D5A62;
+  --tinte: #2F3A40;
+  --tinte-leise: #5E6B72;
+
+  /* Flächen und Linien */
+  --grund: #FFFFFF;
+  --flaeche-warm: #FCF6EB;
+  --flaeche-dunkel: #3A454C;
+  --flaeche-dunkler: #2F3A40;
+  --auf-dunkel: #F3F0EA;
+  --auf-dunkel-leise: #D6D2CA;
+  --linie: #E9DFCC;
+  --linie-dunkel: #55616A;
+  --feld: #FFFFFF;
+  --feld-rand: #9C8B63;       /* 3,3:1 zu Weiß */
+  --fokus: #4D5A62;
+
+  /* Formsprache: rund (Kreise aus dem Logo) */
+  --radius-flaeche: 28px;
+  --radius-karte: 24px;
+  --radius-feld: 12px;
+  --radius-bedien: 999px;
+}
+
+/* Dark Mode folgt in Phase 6 (Vorschlag: referenz/tokens.css, Entscheidung D4). */

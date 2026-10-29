@@ -1,0 +1,100 @@
+/* komponenten.css – Kopfleiste, Mobilmenü, Seitenkopf, Fußzeile */
+
+/* ---------- Kopfleiste ---------- */
+.kopfleiste {
+	position: sticky; top: 0; z-index: 20;
+	background: var(--grund); border-bottom: 1px solid var(--linie);
+}
+.admin-bar .kopfleiste { top: 32px; }
+@media (max-width: 782px) { .admin-bar .kopfleiste { top: 46px; } }
+
+.kopfleiste__innen {
+	min-height: var(--kopf-h);
+	display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem;
+}
+.marke { flex: none; display: block; line-height: 0; }
+.marke img { height: 52px; width: auto; }
+
+.hauptmenue { margin-left: auto; }
+.hauptmenue ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; margin: 0; padding: 0; list-style: none; }
+.hauptmenue a {
+	display: inline-block; padding: 8px 0; border-bottom: 3px solid transparent;
+	color: var(--tinte); font-size: 1.0625rem; font-weight: 500; text-decoration: none;
+}
+.hauptmenue a:hover { border-bottom-color: var(--linie-dunkel); color: var(--tinte); }
+.hauptmenue a[aria-current="page"],
+.hauptmenue .current-menu-ancestor > a,
+.hauptmenue .current-page-ancestor > a { border-bottom-color: var(--haus); font-weight: 600; }
+/* Die Desktop-Leiste zeigt nur die erste Ebene; Unterseiten erreicht man über die Seiten selbst und das Mobilmenü. */
+.hauptmenue .sub-menu { display: none; }
+
+/* Menüknopf mit Punkten aus dem Logo */
+.menueknopf {
+	display: none; margin-left: auto; min-width: 44px; min-height: 44px; padding: 0 1rem;
+	align-items: center; justify-content: center; gap: .6rem;
+	border: 2px solid var(--ueberschrift); border-radius: var(--radius-bedien);
+	background: transparent; color: var(--ueberschrift); font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer;
+}
+.menueknopf:hover { background: var(--flaeche-warm); }
+.punkte { display: block; }
+.punkte circle { fill: var(--haus); }
+
+@media (max-width: 1059.98px) {
+	.js .hauptmenue { display: none; }
+	.js .menueknopf { display: inline-flex; }
+}
+@media (max-width: 1059.98px) {
+	.kopfleiste__innen { gap: .5rem 1rem; }
+	.hauptmenue { flex: 1 0 100%; margin-left: 0; padding-bottom: .5rem; }
+	.js .kopfleiste__innen { flex-wrap: nowrap; }
+}
+
+/* ---------- Mobiles Vollbild-Menü ---------- */
+.mobilmenue {
+	position: fixed; inset: 0; z-index: 50; overflow-y: auto;
+	display: flex; flex-direction: column;
+	background: var(--flaeche-dunkel); color: var(--auf-dunkel);
+	padding: 0 var(--pad) 2rem;
+}
+.mobilmenue[hidden] { display: none; }
+.mobilmenue__kopf { min-height: var(--kopf-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.mobilmenue__titel { font-weight: 600; font-size: 1.0625rem; }
+.mobilmenue__zu {
+	min-width: 44px; min-height: 44px; padding: 0 1rem; display: inline-flex; align-items: center; gap: .6rem;
+	border: 2px solid var(--auf-dunkel); border-radius: var(--radius-bedien);
+	background: transparent; color: var(--auf-dunkel); font: inherit; font-weight: 600; cursor: pointer;
+}
+.mobilmenue__zu:hover { background: var(--flaeche-dunkler); }
+.mobilmenue ul { margin: 0; padding: 0; list-style: none; }
+.mobilmenue__liste { margin-top: 1.5rem; }
+.mobilmenue__liste > li { border-bottom: 1px solid var(--linie-dunkel); }
+.mobilmenue a {
+	display: block; padding: .8rem 0; color: var(--auf-dunkel);
+	font-size: clamp(1.375rem, 5vw, 1.75rem); font-weight: 600; text-decoration: none;
+}
+.mobilmenue a:hover { color: var(--haus); text-decoration: underline; text-decoration-thickness: 3px; }
+.mobilmenue a[aria-current="page"] { color: var(--haus); }
+.mobilmenue .sub-menu { padding: 0 0 .75rem 1rem; }
+.mobilmenue .sub-menu a { font-size: 1.125rem; font-weight: 500; padding: .45rem 0; color: var(--auf-dunkel-leise); }
+.mobilmenue .sub-menu a:hover { color: var(--haus); }
+html.menue-offen { overflow: hidden; }
+
+/* ---------- Seitenkopf ---------- */
+.seitenkopf { padding-top: clamp(2rem, 5vw, 4rem); }
+.brotkrumen { font-size: var(--fs-klein); color: var(--tinte-leise); }
+.brotkrumen ol { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .5rem; margin: 0; padding: 0; list-style: none; }
+.brotkrumen li + li::before { content: "\203A"; margin-right: .5rem; }
+.brotkrumen a { color: var(--haus-text); }
+.seitenkopf__titel { margin-top: 1rem; max-width: 20ch; }
+.seitenkopf__lead { margin: 1.25rem 0 0; font-size: var(--fs-lead); line-height: 1.5; max-width: 46ch; }
+.seitenkopf__band { margin-top: clamp(2rem, 4vw, 3rem); }
+.seitenkopf__band img { width: 100%; height: 240px; object-fit: cover; border-radius: var(--radius-flaeche); }
+
+/* ---------- Fußzeile ---------- */
+.fusszeile { background: var(--flaeche-dunkler); color: var(--auf-dunkel); margin-top: auto; }
+.fusszeile a { color: var(--auf-dunkel); }
+.fusszeile a:hover { color: var(--haus); }
+.fusszeile__innen { padding-block: 2rem; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .75rem 2rem; font-size: var(--fs-klein); }
+.fusszeile__claim { flex: 1 0 100%; margin: 0; font-size: 1.125rem; font-weight: 600; }
+.fusszeile__menue { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+.fusszeile__menue a { display: inline-block; padding: .35rem 0; }

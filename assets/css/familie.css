@@ -1,0 +1,95 @@
+/* ENTWURF – Familienfundament der sysTelios-Wirkungsfamilie
+   Diese Datei soll in TRANSFER und (später) LEBENSART identisch sein.
+   Sie enthält nur Konstanten: Schrift, Skala, Raster, Grundtypografie, Verhalten,
+   Familienleiste. Hauswerte (Farben, Radien) kommen aus haus.css.
+   Ziel im Theme: assets/css/familie.css – Version im Kopf pflegen. */
+
+/* familie.css v0.1.0 */
+
+/* Schriften – lokal gehostet (DSGVO), Pfade relativ zu assets/css/ */
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/barlow-normal-400.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/barlow-normal-500.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/barlow-normal-600.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/barlow-italic-400.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-style: italic; font-weight: 700; font-display: swap; src: url(../fonts/barlow-italic-700.woff2) format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/cormorant-garamond-normal-500.woff2) format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: swap; src: url(../fonts/cormorant-garamond-italic-500.woff2) format("woff2"); }
+
+
+:root {
+  --ff: "Barlow", "DIN Next", "DIN Alternate", "Segoe UI", system-ui, sans-serif;
+  --ff-zitat: "Cormorant Garamond", Georgia, serif;
+
+  --max: 1280px;
+  --pad: clamp(1rem, 4vw, 3rem);
+  --sektion: clamp(3.5rem, 8vw, 7rem);
+  --kopf-h: 68px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --fs-body: 1.125rem;
+  --fs-klein: 0.9375rem;
+  --fs-lead: clamp(1.1875rem, 1.6vw, 1.375rem);
+  --fs-h1: clamp(2.5rem, 4.6vw, 4.5rem);
+  --fs-h2: clamp(2rem, 3.4vw, 3rem);
+  --fs-h3: 1.375rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--kopf-h) + 16px); }
+body {
+  margin: 0;
+  background: var(--grund);
+  color: var(--tinte);
+  font-family: var(--ff);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-weight: 700; font-style: italic; letter-spacing: -0.01em;
+  color: var(--ueberschrift); padding-bottom: 0.08em; margin: 0;
+}
+h1 { font-size: var(--fs-h1); line-height: 1.06; }
+h2 { font-size: var(--fs-h2); line-height: 1.1; }
+h3 { font-size: var(--fs-h3); line-height: 1.25; }
+
+a { color: var(--haus-text); text-underline-offset: 0.2em; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--haus-text-hover); text-decoration-thickness: 3px; }
+:focus-visible { outline: 3px solid var(--fokus); outline-offset: 3px; }
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+.lead { font-size: var(--fs-lead); line-height: 1.5; max-width: 58ch; }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--haus); color: var(--auf-haus); padding: 0.75rem 1rem; font-weight: 600;
+}
+.skip:focus { top: 0.75rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Buttons – Verhalten familienweit, Form (Radius) aus haus.css */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  min-height: 52px; padding: 0 1.6rem; border: 2px solid var(--btn-bg, var(--haus));
+  background: var(--btn-bg, var(--haus)); color: var(--btn-fg, var(--auf-haus));
+  font-weight: 600; font-size: 1.0625rem; line-height: 1; text-decoration: none; white-space: nowrap;
+  border-radius: var(--radius-bedien); cursor: pointer;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s, color .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 -2px color-mix(in srgb, var(--btn-bg, var(--haus)) 35%, transparent); color: var(--btn-fg, var(--auf-haus)); }
+.btn:active { transform: translateY(1px); box-shadow: none; }
+.btn-sm { min-height: 44px; padding: 0 1.1rem; font-size: 1rem; }
+
+/* Familienleiste – Datenmodell siehe docs/05 */
+.familienleiste { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 2rem; }
+.familienleiste ul { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+.familienleiste li { display: flex; align-items: center; gap: .5rem; font-weight: 600; }
+.familienleiste li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--fam-c); flex-shrink: 0; }
+.familienleiste li.wir { padding-inline: .35rem .55rem; border-radius: var(--radius-bedien); border: 1px solid color-mix(in srgb, var(--fam-c) 55%, var(--linie)); }
+.familienleiste li.wir::before { box-shadow: 0 0 0 2px var(--tinte); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

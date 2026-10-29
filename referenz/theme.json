@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": false,
+    "layout": { "contentSize": "46rem", "wideSize": "1280px" },
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "defaultDuotone": false,
+      "duotone": [],
+      "gradients": [],
+      "background": false,
+      "text": false,
+      "link": false,
+      "palette": [
+        { "slug": "haus", "name": "Orange (Haus)", "color": "#F6A500" },
+        { "slug": "haus-text", "name": "Orange dunkel", "color": "#8F5600" },
+        { "slug": "ueberschrift", "name": "Schiefergrau", "color": "#4D5A62" },
+        { "slug": "tinte", "name": "Text", "color": "#2F3A40" },
+        { "slug": "flaeche-warm", "name": "Creme", "color": "#FCF6EB" },
+        { "slug": "flaeche-dunkel", "name": "Dunkel", "color": "#3A454C" },
+        { "slug": "grund", "name": "Weiß", "color": "#FFFFFF" }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "writingMode": false,
+      "fluid": false,
+      "fontSizes": [
+        { "slug": "klein", "name": "Klein", "size": "0.9375rem" },
+        { "slug": "normal", "name": "Normal", "size": "1.125rem" },
+        { "slug": "lead", "name": "Einleitung", "size": "clamp(1.1875rem, 1.6vw, 1.375rem)" }
+      ],
+      "fontFamilies": [
+        { "slug": "barlow", "name": "Barlow", "fontFamily": "\"Barlow\", \"Segoe UI\", system-ui, sans-serif" },
+        { "slug": "zitat", "name": "Cormorant Garamond", "fontFamily": "\"Cormorant Garamond\", Georgia, serif" }
+      ]
+    },
+    "spacing": {
+      "padding": false,
+      "margin": false,
+      "blockGap": false,
+      "customSpacingSize": false,
+      "units": []
+    },
+    "border": { "color": false, "radius": false, "style": false, "width": false },
+    "shadow": { "defaultPresets": false, "presets": [] },
+    "blocks": {
+      "core/heading": {
+        "typography": { "fontSizes": [] }
+      },
+      "core/button": {
+        "border": { "radius": false }
+      }
+    }
+  },
+  "styles": {}
+}
