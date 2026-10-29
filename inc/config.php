@@ -67,6 +67,21 @@ function stt_fallback_karte() {
 			'lead'   => 'Eine Haltung, die verbindet.',
 			'bild'   => 0,
 		),
+		'impressum'               => array(
+			'muster' => 'stt/inhalt-impressum',
+			'lead'   => '',
+			'bild'   => 0,
+		),
+		'datenschutzerklaerung'   => array(
+			'muster' => 'stt/inhalt-datenschutzerklaerung',
+			'lead'   => '',
+			'bild'   => 0,
+		),
+		'charta'                  => array(
+			'muster' => 'stt/inhalt-charta',
+			'lead'   => 'Die Prinzipien unserer Arbeit und dieses Ansatzes wurden durch die Netzwerkgruppe in Form einer Charta zusammengefasst.',
+			'bild'   => 0,
+		),
 		'lernreise'               => array(
 			'muster' => 'stt/inhalt-lernreise',
 			'lead'   => '[Einleitung zur Lernreise aus Sicht von Transfer]',

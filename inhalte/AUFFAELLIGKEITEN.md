@@ -15,3 +15,7 @@ Der Wortlaut wurde 1:1 übernommen. Hier stehen nur Beobachtungen.
 - was-ist-hypnosystemik: Hero-Bild stammt nicht aus der Mediathek (Dateiname mit Fremdkennung) – im Muster kein Bildband.
 - kontaktaufnahme: Das Formular (Elementor) wird nicht nachgebaut, sondern durch `[stt_kontakt]` ersetzt (Entscheidung D3).
 - lernreise: gibt es auf der Live-Seite noch nicht (404); Platzhalterseite folgt in Phase 5.
+- charta: Die Überschriften „3. Hypno- und systemische Aspekte“ und „4. Hypno- und systemische Aspekte“ sind identisch (vermutlich Tippfehler bei Punkt 4); „Augehöhe“ statt „Augenhöhe“ in der Liste; im Seiteninhalt stehen verwaiste Block-Kommentare (`<!-- /wp:post-content -->`), die unsichtbar sind. Die Seite ist keine Elementor-Seite, sie steht aber auf der Live-Seite und nicht im Menü.
+- impressum: Fotonachweis nennt zwei Personen ohne Zuordnung; der Text „Danksagungen“ steht mit im Impressum.
+- datenschutzerklaerung: Spricht im Gegensatz zum Rest der Website mit „du/deiner“ statt „Sie“; Verantwortlicher ist hier eine Einzelperson, im Impressum die GmbH & Co. KG – bitte rechtlich prüfen lassen.
+- Alle drei Texte: Stand 29.10.2026; Impressum und Datenschutzerklärung vor der Live-Schaltung neu abgleichen.

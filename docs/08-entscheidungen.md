@@ -13,7 +13,7 @@ Cursor arbeitet mit der **Voreinstellung** weiter und markiert betroffene Stelle
 | D6 | Familiendaten (Namen, Reihenfolge, Farben, Links) | aus LEBENSART-Must-Use-Plugin übernehmen; bis dahin Platzhalter | **Tom liefert** |
 | D7 | Beziehung im JSON-LD | Option standardmäßig aus; falls an: neutraler Verweis, `parentOrganization` nur bei rechtlicher Zugehörigkeit | offen |
 | D8 | Logo | SVG-Fassung des Transfer-Logos; bis dahin PNG aus `referenz/bilder/` (nur 370 px breit) | **Tom liefert** |
-| D9 | Impressum & Datenschutz | **kein** Fallback-Muster; bestehender Inhalt bleibt (bei Elementor-Seiten: Text per Übernahme-Hilfe manuell prüfen) | gesetzt |
+| D9 | Impressum & Datenschutz | Fallback-Muster mit dem **Ist-Zustand** der Live-Seite (Stand 29.10.2026, Wortlaut unverändert). Rechtlich verbindlich: vor der Live-Schaltung mit der Live-Seite abgleichen, nach dem Übernehmen von der Geschäftsführung/Datenschutz prüfen lassen | gesetzt (geändert am 29.10.2026) |
 | D10 | Kursive Überschriften | ja (Familienkonstante) | gesetzt |
 | D11 | Texte der Lernreise-Seite | Platzhalter in eckigen Klammern; Tom/Team schreibt | offen |
 | D12 | Menüstruktur | bestehende WordPress-Menüs weiterverwenden; „Lernreise“ als Unterpunkt von Angebote ergänzen | gesetzt |

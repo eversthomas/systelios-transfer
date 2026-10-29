@@ -65,9 +65,9 @@ Alle Seiten im Frontend ansehen (Desktop und Handy), mit Blick auf:
 - [ ] Startseite, Angebote, Transferabend online, Gruppen vor Ort, Für Angehörige, Therapeuten und Coaches, Was ist Hypnosystemik, Kontaktaufnahme, Impressum, Datenschutzerklärung, Lernreise.
 - [ ] Verzeichnis und Termine erscheinen an der richtigen Stelle.
 - [ ] Bilder und PDF-Links funktionieren (Mediathek).
-- [ ] Impressum und Datenschutzerklärung: **kein** Fallback (D9). Prüfen, dass der bisherige Text noch da ist.
+- [ ] Impressum, Datenschutzerklärung und Charta: Der mitgelieferte Text ist der Stand vom 29.10.2026. **Kurz vor der Umstellung mit der Live-Seite abgleichen** (Impressum und Datenschutz sind rechtlich verbindlich), dann über Design → Transfer-Inhalte übernehmen und die Texte prüfen lassen.
 - [ ] Kontaktformular: Test-Nachricht senden, E-Mail kommt an.
-- [ ] Seiten ohne mitgelieferten Inhalt, die früher Elementor waren, erscheinen leer: Design → Transfer-Inhalte zeigt sie als „Ohne Fallback“. Entweder Inhalt neu anlegen oder zurück auf das alte Theme.
+- [ ] Seiten ohne mitgelieferten Inhalt (zum Beispiel neu angelegte Seiten), die früher mit Elementor gebaut waren, erscheinen eventuell leer: Design → Transfer-Inhalte zeigt sie als „Ohne Fallback“. Entweder Inhalt neu anlegen oder zurück auf das alte Theme (auf der Live-Seite ist das bisher Astra).
 
 ## 8. Inhalte übernehmen (nach Bedarf)
 
