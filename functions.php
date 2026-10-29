@@ -16,3 +16,5 @@ define( 'STT_URI', get_template_directory_uri() );
 require_once STT_DIR . '/inc/setup.php';
 require_once STT_DIR . '/inc/assets.php';
 require_once STT_DIR . '/inc/vorlage.php';
+require_once STT_DIR . '/inc/editor.php';
+require_once STT_DIR . '/inc/bloecke.php';

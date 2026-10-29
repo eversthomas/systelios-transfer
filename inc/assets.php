@@ -24,7 +24,7 @@ function stt_asset_version( $pfad ) {
  * Stylesheets und Skripte einbinden.
  */
 function stt_assets_laden() {
-	$css = array( 'familie', 'haus', 'layout', 'komponenten' );
+	$css = array( 'familie', 'haus', 'layout', 'komponenten', 'bloecke' );
 	$vor = array();
 	foreach ( $css as $name ) {
 		$pfad = 'assets/css/' . $name . '.css';
@@ -71,3 +71,20 @@ add_action( 'wp_head', 'stt_schriften_vorladen', 1 );
  * WordPress-Version nicht im Seitenquelltext ausgeben.
  */
 remove_action( 'wp_head', 'wp_generator' );
+
+/**
+ * Editor = Frontend: dieselben Stylesheets (Schriften, Farben, Radien, Block-Stile) im Block-Editor.
+ */
+function stt_editor_styles() {
+	add_theme_support( 'editor-styles' );
+	add_theme_support( 'align-wide' );
+	add_editor_style(
+		array(
+			'assets/css/familie.css',
+			'assets/css/haus.css',
+			'assets/css/bloecke.css',
+			'assets/css/editor.css',
+		)
+	);
+}
+add_action( 'after_setup_theme', 'stt_editor_styles' );

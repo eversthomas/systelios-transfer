@@ -1,0 +1,121 @@
+/* bloecke.css – Block-Stile (.is-style-<name>). Wird im Frontend UND als Editor-Style geladen.
+   Nur Rollen-Variablen, keine Hex-Werte. Siehe docs/03-pflegekonzept.md. */
+
+/* Verschachtelte Gruppen: Inhalt linksbündig zum Raster, nicht zentriert.
+   Der Kern setzt die Zentrierung mit !important, daher hier ebenfalls. */
+.wp-block-group.is-layout-constrained > :where(:not(.alignwide):not(.alignfull)) {
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+/* ---------- Gruppen ---------- */
+.wp-block-group.is-style-warm,
+.wp-block-group.is-style-dunkel {
+	padding: clamp(2.5rem, 6vw, 5rem) var(--pad);
+}
+.wp-block-group.is-style-warm { background: var(--flaeche-warm); }
+.wp-block-group.is-style-dunkel { background: var(--flaeche-dunkel); color: var(--auf-dunkel); }
+.wp-block-group.is-style-dunkel :is(h1, h2, h3, h4) { color: var(--auf-dunkel); }
+.wp-block-group.is-style-dunkel a:not(.wp-block-button__link) { color: var(--auf-dunkel); }
+.wp-block-group.is-style-dunkel a:not(.wp-block-button__link):hover { color: var(--haus); }
+
+.wp-block-group.is-style-karte {
+	background: var(--grund); border: 1px solid var(--linie);
+	border-radius: var(--radius-karte); padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.wp-block-group.is-style-akzent {
+	background: var(--haus); color: var(--auf-haus);
+	border-radius: var(--radius-flaeche); padding: clamp(2rem, 5vw, 4rem);
+}
+.wp-block-group.is-style-akzent :is(h1, h2, h3, h4) { color: var(--auf-haus); }
+.wp-block-group.is-style-akzent a:not(.wp-block-button__link) { color: var(--auf-haus); }
+
+/* ---------- Buttons ---------- */
+.wp-block-button .wp-block-button__link {
+	display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+	min-height: 52px; padding: 0 1.6rem; border: 2px solid var(--haus); border-radius: var(--radius-bedien);
+	background: var(--haus); color: var(--auf-haus);
+	font-size: 1.0625rem; font-weight: 600; line-height: 1.2; text-decoration: none;
+	transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s, color .2s;
+}
+.wp-block-button .wp-block-button__link:hover {
+	transform: translateY(-2px); color: var(--auf-haus);
+	box-shadow: 0 6px 0 -2px color-mix(in srgb, var(--haus) 35%, transparent);
+}
+.wp-block-button .wp-block-button__link:active { transform: translateY(1px); box-shadow: none; }
+
+.wp-block-button.is-style-umriss .wp-block-button__link {
+	background: transparent; border-color: var(--ueberschrift); color: var(--ueberschrift);
+}
+.wp-block-button.is-style-umriss .wp-block-button__link:hover {
+	background: var(--flaeche-warm); color: var(--ueberschrift); box-shadow: none;
+}
+.wp-block-button.is-style-dunkel .wp-block-button__link {
+	background: var(--flaeche-dunkel); border-color: var(--flaeche-dunkel); color: var(--auf-dunkel);
+}
+.wp-block-button.is-style-dunkel .wp-block-button__link:hover {
+	color: var(--auf-dunkel); box-shadow: 0 6px 0 -2px color-mix(in srgb, var(--flaeche-dunkel) 35%, transparent);
+}
+/* Auf der Akzentfläche ist der normale Button unsichtbar → dunkel. */
+.is-style-akzent .wp-block-button:not(.is-style-umriss) .wp-block-button__link {
+	background: var(--flaeche-dunkel); border-color: var(--flaeche-dunkel); color: var(--auf-dunkel);
+}
+/* Auf dunklen Flächen bleibt der orange Button, der Umriss wird hell. */
+.is-style-dunkel .wp-block-button.is-style-umriss .wp-block-button__link { border-color: var(--auf-dunkel); color: var(--auf-dunkel); }
+.is-style-dunkel .wp-block-button.is-style-umriss .wp-block-button__link:hover { background: var(--flaeche-dunkler); color: var(--auf-dunkel); }
+
+/* ---------- Bilder ---------- */
+.wp-block-image img { border-radius: var(--radius-karte); }
+.wp-block-image.is-style-eckig img { border-radius: 0; }
+
+/* ---------- Zitat mit Punkten ---------- */
+.wp-block-quote.is-style-punkte {
+	margin-inline: 0; padding: 0; border: 0;
+	font-family: var(--ff-zitat); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.125rem); line-height: 1.35;
+	color: var(--ueberschrift);
+}
+.wp-block-quote.is-style-punkte::before {
+	content: ""; display: block; width: 76px; height: 52px; margin-bottom: 1.25rem;
+	background:
+		radial-gradient(circle at 12px 14px, var(--haus) 0 10px, transparent 10.5px),
+		radial-gradient(circle at 44px 24px, var(--haus) 0 14px, transparent 14.5px),
+		radial-gradient(circle at 20px 42px, var(--marke-grau) 0 6px, transparent 6.5px);
+}
+.wp-block-quote.is-style-punkte p { max-width: 36ch; }
+.wp-block-quote.is-style-punkte cite {
+	display: block; margin-top: 1rem; font-family: var(--ff); font-size: var(--fs-klein); font-style: normal; color: var(--tinte-leise);
+}
+
+/* ---------- Listen ---------- */
+.wp-block-list.is-style-haken { list-style: none; padding-left: 0; }
+.wp-block-list.is-style-haken > li { position: relative; padding-left: 2em; }
+.wp-block-list.is-style-haken > li::before {
+	content: ""; position: absolute; left: .35em; top: .35em; width: .5em; height: .9em;
+	border: solid var(--haus-text); border-width: 0 3px 3px 0; transform: rotate(45deg);
+}
+
+.wp-block-list.is-style-nummern-gross { list-style: none; padding-left: 0; counter-reset: stt-nr; columns: 2 20rem; column-gap: 3rem; }
+.wp-block-list.is-style-nummern-gross > li {
+	counter-increment: stt-nr; break-inside: avoid; display: grid; grid-template-columns: 3.5rem 1fr; gap: 0 .5rem;
+	padding-block: .75rem; border-top: 1px solid var(--linie);
+}
+.wp-block-list.is-style-nummern-gross > li::before {
+	content: counter(stt-nr, decimal-leading-zero);
+	font-size: 1.75rem; font-weight: 700; font-style: italic; line-height: 1.2; color: var(--haus-text);
+}
+.is-style-dunkel .wp-block-list.is-style-nummern-gross > li { border-top-color: var(--linie-dunkel); }
+.is-style-dunkel .wp-block-list.is-style-nummern-gross > li::before { color: var(--haus); }
+
+/* ---------- Absätze ---------- */
+p.is-style-lead { font-size: var(--fs-lead); line-height: 1.5; }
+p.is-style-hinweis {
+	padding: 1rem 1.25rem; border: 1px solid var(--linie); border-radius: var(--radius-feld);
+	background: var(--flaeche-warm); font-size: var(--fs-klein);
+}
+
+/* ---------- Sonstiges ---------- */
+.wp-block-separator { border: 0; border-top: 1px solid var(--linie); opacity: 1; }
+.wp-block-details { border: 1px solid var(--linie); border-radius: var(--radius-feld); padding: .25rem 1.25rem; }
+.wp-block-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--ueberschrift); }
+.wp-block-columns { gap: 1.5rem 3rem; }
