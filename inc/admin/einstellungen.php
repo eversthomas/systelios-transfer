@@ -26,6 +26,28 @@ function stt_einstellungen_menue() {
 add_action( 'admin_menu', 'stt_einstellungen_menue' );
 
 /**
+ * Mediathek-Auswahl für die Logos – nur auf der Einstellungsseite.
+ *
+ * @param string $hook Kennung der Admin-Seite.
+ */
+function stt_einstellungen_skripte( $hook ) {
+	if ( 'appearance_page_stt-einstellungen' !== $hook ) {
+		return;
+	}
+	wp_enqueue_media();
+	wp_enqueue_script( 'stt-einstellungen', get_theme_file_uri( 'assets/js/einstellungen.js' ), array(), wp_get_theme()->get( 'Version' ), true );
+	wp_localize_script(
+		'stt-einstellungen',
+		'sttEinstellungen',
+		array(
+			'titel'  => __( 'Logo wählen', 'systelios-transfer' ),
+			'knopf'  => __( 'Dieses Logo verwenden', 'systelios-transfer' ),
+		)
+	);
+}
+add_action( 'admin_enqueue_scripts', 'stt_einstellungen_skripte' );
+
+/**
  * Hex-Farbe prüfen, sonst Ersatzwert.
  *
  * @param mixed  $wert    Eingabe.
@@ -192,7 +214,7 @@ function stt_einstellungen_seite() {
 			</table>
 
 			<h2><?php esc_html_e( 'Wirkungsfamilie', 'systelios-transfer' ); ?></h2>
-			<p><?php esc_html_e( 'Namen, Reihenfolge und Farben wie bei LEBENSART. Leere Zeilen werden ignoriert. Ohne Adresse wird der Name ohne Link angezeigt. Genau ein Haus ist „Wir“ (hier: Transfer).', 'systelios-transfer' ); ?></p>
+			<p><?php esc_html_e( 'Namen, Reihenfolge und Farben wie bei LEBENSART. Leere Zeilen werden ignoriert. Mit einem Logo zeigt die Familienleiste statt des Namens das Logo (der Name dient als Alternativtext). Ohne Adresse wird der Name ohne Link angezeigt. Genau ein Haus ist „Wir“ (hier: Transfer).', 'systelios-transfer' ); ?></p>
 			<table class="widefat striped" style="max-width:1100px">
 				<thead>
 					<tr>
@@ -202,7 +224,7 @@ function stt_einstellungen_seite() {
 						<th scope="col"><?php esc_html_e( 'Hausfarbe', 'systelios-transfer' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Textfarbe', 'systelios-transfer' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Adresse (optional)', 'systelios-transfer' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Logo-ID', 'systelios-transfer' ); ?></th>
+						<th scope="col"><?php esc_html_e( 'Logo (aus der Mediathek)', 'systelios-transfer' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Wir', 'systelios-transfer' ); ?></th>
 					</tr>
 				</thead>
@@ -230,7 +252,13 @@ function stt_einstellungen_seite() {
 						<td><input type="text" class="small-text" name="stt_familie[<?php echo (int) $i; ?>][hex]" value="<?php echo esc_attr( $z['hex'] ); ?>" placeholder="#6F6E6E" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: Zeile */ __( 'Hausfarbe, Zeile %d', 'systelios-transfer' ), $i + 1 ) ); ?>"></td>
 						<td><input type="text" class="small-text" name="stt_familie[<?php echo (int) $i; ?>][textfarbe]" value="<?php echo esc_attr( $z['textfarbe'] ); ?>" placeholder="#FFFFFF" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: Zeile */ __( 'Textfarbe, Zeile %d', 'systelios-transfer' ), $i + 1 ) ); ?>"></td>
 						<td><input type="url" name="stt_familie[<?php echo (int) $i; ?>][link]" value="<?php echo esc_attr( $z['link'] ); ?>" placeholder="https://" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: Zeile */ __( 'Adresse, Zeile %d', 'systelios-transfer' ), $i + 1 ) ); ?>"></td>
-						<td><input type="number" class="small-text" min="0" name="stt_familie[<?php echo (int) $i; ?>][logo]" value="<?php echo esc_attr( (string) (int) $z['logo'] ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %d: Zeile */ __( 'Logo-ID, Zeile %d', 'systelios-transfer' ), $i + 1 ) ); ?>"></td>
+						<td class="stt-logo-wahl">
+							<?php $logo_id = (int) $z['logo']; ?>
+							<input type="hidden" class="stt-logo-id" name="stt_familie[<?php echo (int) $i; ?>][logo]" value="<?php echo esc_attr( (string) $logo_id ); ?>">
+							<span class="stt-logo-vorschau"><?php echo $logo_id ? wp_get_attachment_image( $logo_id, array( 120, 48 ), false, array( 'alt' => '' ) ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+							<button type="button" class="button stt-logo-waehlen"><?php esc_html_e( 'Logo wählen', 'systelios-transfer' ); ?></button>
+							<button type="button" class="button-link stt-logo-entfernen"<?php echo $logo_id ? '' : ' hidden'; ?>><?php esc_html_e( 'Entfernen', 'systelios-transfer' ); ?></button>
+						</td>
 						<td><input type="radio" name="stt_familie[wir]" value="<?php echo (int) $i; ?>" <?php checked( ! empty( $z['wir'] ) ); ?> aria-label="<?php echo esc_attr( sprintf( /* translators: %d: Zeile */ __( 'Dieses Haus ist „Wir“, Zeile %d', 'systelios-transfer' ), $i + 1 ) ); ?>"></td>
 					</tr>
 				<?php endforeach; ?>
