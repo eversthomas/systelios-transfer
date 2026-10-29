@@ -22,14 +22,15 @@ if ( ! $haeuser ) {
 			<?php
 			$farbe   = sanitize_hex_color( $haus['hex'] );
 			$beschr  = $haus['rolle'] . ( '' !== $haus['zuschreibung'] ? ' · ' . $haus['zuschreibung'] : '' );
-			$klasse  = ! empty( $haus['wir'] ) ? 'wir' : '';
+			$logo_id = (int) $haus['logo'];
+			$klasse  = trim( ( ! empty( $haus['wir'] ) ? 'wir ' : '' ) . ( $logo_id ? 'mit-logo' : '' ) );
 			$stil    = $farbe ? '--fam-c:' . $farbe : '';
 			?>
 			<li<?php echo '' !== $klasse ? ' class="' . esc_attr( $klasse ) . '"' : ''; ?><?php echo '' !== $stil ? ' style="' . esc_attr( $stil ) . '"' : ''; ?>>
 				<?php if ( ! empty( $haus['link'] ) ) : ?>
-					<a href="<?php echo esc_url( $haus['link'] ); ?>" rel="noopener"><?php echo esc_html( $beschr ); ?></a>
+					<a href="<?php echo esc_url( $haus['link'] ); ?>" rel="noopener"><?php echo $logo_id ? wp_get_attachment_image( $logo_id, 'medium', false, array( 'class' => 'familienleiste__logo', 'alt' => $beschr, 'loading' => 'lazy' ) ) : esc_html( $beschr ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 				<?php else : ?>
-					<span><?php echo esc_html( $beschr ); ?></span>
+					<span><?php echo $logo_id ? wp_get_attachment_image( $logo_id, 'medium', false, array( 'class' => 'familienleiste__logo', 'alt' => $beschr, 'loading' => 'lazy' ) ) : esc_html( $beschr ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
 				<?php endif; ?>
 				<?php if ( ! empty( $haus['wir'] ) ) : ?>
 					<span class="sr"><?php esc_html_e( '(Sie sind hier)', 'systelios-transfer' ); ?></span>

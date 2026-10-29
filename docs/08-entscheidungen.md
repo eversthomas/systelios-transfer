@@ -18,6 +18,7 @@ Cursor arbeitet mit der **Voreinstellung** weiter und markiert betroffene Stelle
 | D11 | Texte der Lernreise-Seite | Platzhalter in eckigen Klammern; Tom/Team schreibt | offen |
 | D12 | Menüstruktur | bestehende WordPress-Menüs weiterverwenden; „Lernreise“ als Unterpunkt von Angebote ergänzen | gesetzt |
 | D13 | Beiträge/Blog | nicht im Fokus; `index.php` schlichte Liste im Theme-Stil | gesetzt |
+| D14 | Fußzeile (Elementor-Vorbild: Wirkungsfamilie mit Logos + helle Leiste) | Logo-Block nur als Muster/Abschnitt auf Startseite und Kontaktseite (kein seitenweiter Linkblock, SEO); Fußzeile auf allen Seiten: Claim, Newsletter, Leiste mit Fußmenü, Copyright, „Nach oben“-Anker; Logos der Häuser optional über Logo-ID in den Einstellungen | gesetzt (29.10.2026) |
 
 ## Randbefund
 Im Verzeichnis steht bei mindestens einem Profil „Array“ statt eines Wertes – vermutlich

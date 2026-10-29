@@ -99,6 +99,12 @@ html.menue-offen { overflow: hidden; }
 .fusszeile__claim { flex: 1 0 100%; margin: 0; font-size: 1.125rem; font-weight: 600; }
 .fusszeile__menue { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
 .fusszeile__menue a { display: inline-block; padding: .35rem 0; }
+.fusszeile__leiste { background: var(--flaeche-dunkel); border-top: 1px solid var(--linie-dunkel); font-size: var(--fs-klein); }
+.fusszeile__leiste-innen { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem; padding-block: 1rem; }
+.fusszeile__copy { margin-inline-start: auto; color: var(--auf-dunkel-leise); }
+.nach-oben { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-bedien); background: var(--haus); color: var(--auf-haus) !important; }
+.nach-oben:hover { background: var(--auf-dunkel); }
+@media (max-width: 40em) { .fusszeile__copy { margin-inline-start: 0; flex: 1 1 100%; order: 3; } .nach-oben { margin-inline-start: auto; } }
 
 /* ---------- Newsletter-Hinweis (Fußzeile) ---------- */
 .fusszeile a.btn { color: var(--auf-haus); }
@@ -125,3 +131,7 @@ html.menue-offen { overflow: hidden; }
 
 /* Auf dunklen Flächen ist der Fokusring hell (sonst zu schwach). */
 .fusszeile, .mobilmenue, .wp-block-group.is-style-dunkel { --fokus: var(--auf-dunkel); }
+
+/* Familienleiste mit Logos (wenn in den Einstellungen eine Logo-ID gesetzt ist) */
+.familienleiste li.mit-logo::before { display: none; }
+.familienleiste__logo { display: block; width: auto; height: 3rem; max-width: 10rem; object-fit: contain; }
