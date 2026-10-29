@@ -1,0 +1,24 @@
+/* druck.css – einfache Druckansicht für Inhaltsseiten: schwarz auf weiß, ohne Navigation und Schmuck. */
+@page { margin: 18mm; }
+
+body { background: #fff; color: #000; font-size: 11pt; line-height: 1.45; display: block; min-height: 0; }
+.skip, .kopfleiste, .mobilmenue, .menueknopf, .fusszeile nav, .newsletter-hinweis,
+.familienleiste, .wp-block-buttons, .brotkrumen, .seitenkopf__band, .search-form, .stt-kontakt { display: none !important; }
+
+.wrap, .inhalt > * { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; padding-inline: 0; }
+.seitenkopf { padding-top: 0; }
+h1 { font-size: 22pt; }
+h2 { font-size: 16pt; }
+h3 { font-size: 13pt; }
+h1, h2, h3, h4 { color: #000; break-after: avoid; }
+
+/* Bänder, Karten und Flächen ohne Farbe */
+.wp-block-group { background: none !important; color: #000 !important; border-radius: 0 !important; padding: 0 !important; }
+.wp-block-group.is-style-karte { border: 1px solid #999 !important; padding: 8pt !important; break-inside: avoid; }
+.wp-block-group *, .fusszeile { color: #000 !important; }
+.fusszeile { background: none; border-top: 1px solid #999; }
+
+/* Links im Fließtext mit sichtbarer Adresse */
+.inhalt a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
+.inhalt a { color: #000; }
+img { max-width: 100%; break-inside: avoid; }

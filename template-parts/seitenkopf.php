@@ -42,7 +42,11 @@ $krumen = isset( $args['krumen'] ) && is_array( $args['krumen'] ) ? $args['krume
 
 		<?php if ( $bild > 0 ) : ?>
 			<div class="seitenkopf__band">
-				<?php echo wp_get_attachment_image( $bild, 'stt-band', false, array( 'sizes' => '(min-width: 1280px) 1184px, 100vw' ) ); ?>
+				<?php echo wp_get_attachment_image( $bild, 'stt-band', false, array(
+						'sizes'         => '(min-width: 1280px) 1184px, 100vw',
+						'loading'       => 'eager',
+						'fetchpriority' => 'high',
+					) ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

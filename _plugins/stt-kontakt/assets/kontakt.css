@@ -26,3 +26,9 @@
 .stt-kontakt__honig { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .stt-kontakt--erfolg p { padding: 1rem 1.25rem; border: 2px solid var(--haus, #F6A500); border-radius: var(--radius-feld, 12px); background: var(--flaeche-warm, #FCF6EB); }
 @media (prefers-reduced-motion: reduce) { .stt-kontakt__knopf:hover { transform: none; } }
+
+@media (prefers-color-scheme: dark) {
+	.stt-kontakt [aria-invalid="true"],
+	.stt-kontakt__fehler { border-color: #FF9A9A; }
+	.stt-kontakt__feldfehler { color: #FFB4B4; }
+}

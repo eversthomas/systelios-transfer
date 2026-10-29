@@ -1,0 +1,24 @@
+/* dunkel.css – Dark Mode (Entscheidung D4): folgt der Systemeinstellung, kein Umschalter.
+   Nur Frontend (nicht im Block-Editor). Alle Kombinationen sind auf 4,5:1 (Text) bzw. 3:1 (Bedienelemente) geprüft. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --haus: #FFC14D;
+    --auf-haus: #1F2A2F;
+    --haus-text: #FFC14D;      /* 10,8:1 auf --grund */
+    --haus-text-hover: #FFD58A;
+    --ueberschrift: #E8EDEF;
+    --tinte: #E8EDEF;
+    --tinte-leise: #A9B6BC;
+    --grund: #141B1F;
+    --flaeche-warm: #1C262B;
+    --flaeche-dunkel: #0E1417;
+    --flaeche-dunkler: #0B1013;
+    --linie: #2E3B42;
+    --linie-dunkel: #2E3B42;
+    --feld: #1C262B;
+    --feld-rand: #7D8E96;
+    --fokus: #FFC14D;
+    --logo-grund: #FFFFFF;
+  }
+}

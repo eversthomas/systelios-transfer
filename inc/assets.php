@@ -24,13 +24,16 @@ function stt_asset_version( $pfad ) {
  * Stylesheets und Skripte einbinden.
  */
 function stt_assets_laden() {
-	$css = array( 'familie', 'haus', 'layout', 'komponenten', 'bloecke' );
+	$css = array( 'familie', 'haus', 'dunkel', 'layout', 'komponenten', 'bloecke' );
 	$vor = array();
 	foreach ( $css as $name ) {
 		$pfad = 'assets/css/' . $name . '.css';
 		wp_enqueue_style( 'stt-' . $name, STT_URI . '/' . $pfad, $vor, stt_asset_version( $pfad ) );
 		$vor = array( 'stt-' . $name );
 	}
+
+	// Druckansicht: eigene Datei, wird nur beim Drucken geladen.
+	wp_enqueue_style( 'stt-druck', STT_URI . '/assets/css/druck.css', array( 'stt-bloecke' ), stt_asset_version( 'assets/css/druck.css' ), 'print' );
 
 	wp_enqueue_script(
 		'stt-menue',
@@ -71,6 +74,17 @@ add_action( 'wp_head', 'stt_schriften_vorladen', 1 );
  * WordPress-Version nicht im Seitenquelltext ausgeben.
  */
 remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+
+/**
+ * Nicht benötigte Stylesheets weglassen (Block-Stile des Themes ersetzen das Klassik-Theme-CSS).
+ */
+function stt_unnoetige_styles_entfernen() {
+	wp_dequeue_style( 'classic-theme-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'stt_unnoetige_styles_entfernen', 100 );
 
 /**
  * Editor = Frontend: dieselben Stylesheets (Schriften, Farben, Radien, Block-Stile) im Block-Editor.

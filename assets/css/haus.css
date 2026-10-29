@@ -33,6 +33,10 @@
   --radius-karte: 24px;
   --radius-feld: 12px;
   --radius-bedien: 999px;
+
+  /* Logo-Hintergrund: im Dark Mode eine helle Plakette, damit das graue Logo lesbar bleibt */
+  --logo-grund: transparent;
+  color-scheme: light dark;
 }
 
-/* Dark Mode folgt in Phase 6 (Vorschlag: referenz/tokens.css, Entscheidung D4). */
+/* Dark Mode: siehe dunkel.css (Entscheidung D4). */
